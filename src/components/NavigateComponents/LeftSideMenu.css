@@ -1,0 +1,32 @@
+.leftBtn {
+  position: absolute;
+  left: 10px;
+  width: fit-content;
+}
+
+.offcanvas.offcanvas-start.custom-width {
+  width: 250px !important;
+}
+
+.offcanvas .offcanvas-body {
+  padding: 0;
+}
+.offcanvas .nav-link {
+  padding: 10px;
+}
+.offcanvas .nav-link.active {
+  background-color: #2b3035 !important;
+}
+
+.offcanvas-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.offcanvas-body::-webkit-scrollbar-track {
+  /* background: #e0e0e0; */
+}
+
+.offcanvas-body::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 3px;
+}

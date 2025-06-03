@@ -1,0 +1,36 @@
+.btnLangUa {
+  border: 1px solid gray;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 2px 5px;
+  color: white;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+.btnLangUa:hover {
+  background-color: rgb(0, 153, 255);
+  color: white;
+  border-color: rgb(0, 153, 255);
+}
+
+.btnLangEn {
+  border: 1px solid gray;
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 2px 5px;
+  color: white;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+.btnLangEn:hover {
+  background-color: rgb(0, 153, 255);
+  color: white;
+  border-color: rgb(0, 153, 255);
+}
+
+.btnLangActive {
+  background-color: rgb(0, 153, 255);
+  color: white;
+  border-color: rgb(0, 153, 255);
+}
