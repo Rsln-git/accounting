@@ -1,0 +1,9 @@
+.navbarStyle {
+  display: flex;
+  flex-direction: column;
+}
+.addressStyle {
+  color: white;
+  font-weight: 300;
+  font-size: 12px;
+}

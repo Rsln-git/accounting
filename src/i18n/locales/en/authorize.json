@@ -1,0 +1,9 @@
+{
+    "labelemail": "Email",
+    "placeholderemail": "Enter your email",
+    "erroremail": "Email is required!",
+    "labelpassword": "Password",
+    "placeholderpassword": "Enter your password",
+    "errorpassword": "Password is required!",
+    "btnenter": "Login"
+  }

@@ -3,5 +3,7 @@
     "login": "Login",
     "main": "Main",
     "drop": "DropDown",
+    "loginbtn": "Login",
+    "logoutbtn": "Exit",
     "btn3": "Button3"
   }

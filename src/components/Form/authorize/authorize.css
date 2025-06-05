@@ -1,0 +1,19 @@
+.authorizeFormStyle {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  border-radius: 10px;
+  min-width: 40%;
+  padding: 20px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+.eyeStyle {
+  position: absolute;
+  bottom: 8px;
+  right: 30px;
+  width: 20px;
+  cursor: pointer;
+}

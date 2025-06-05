@@ -13,6 +13,8 @@ import enMainPage from "./locales/en/mainpage.json";
 import uaMainPage from "./locales/ua/mainpage.json";
 import enLoginPage from "./locales/en/loginpage.json";
 import uaLoginPage from "./locales/ua/loginpage.json";
+import enAuthorizeForm from "./locales/en/authorize.json";
+import uaAuthorizeForm from "./locales/ua/authorize.json";
 
 const savedLanguage = localStorage.getItem("lang") || "ua";
 if(savedLanguage === "ua"){
@@ -28,6 +30,7 @@ i18n.use(initReactI18next).init({
           breadcrumbs: enCrumbs,
           mainpage: enMainPage,
           loginpage: enLoginPage,
+          authorize: enAuthorizeForm,
         },
         ua: {
           header: uaHeader,
@@ -36,6 +39,7 @@ i18n.use(initReactI18next).init({
           breadcrumbs: uaCrumbs,
           mainpage: uaMainPage,
           loginpage: uaLoginPage,
+          authorize: uaAuthorizeForm,
         },
       },
   lng: savedLanguage, // мова за замовчуванням

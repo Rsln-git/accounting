@@ -1,0 +1,9 @@
+{
+    "labelemail": "Електронна адреса",
+    "placeholderemail": "Введіть email",
+    "erroremail": "Email обов'язково!",
+    "labelpassword": "Пароль",
+    "placeholderpassword": "Введіть пароль",
+    "errorpassword": "Пароль обов'язково!",
+    "btnenter": "Увійти"
+  }

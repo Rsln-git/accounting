@@ -1,3 +1,14 @@
+.langBtnWrapper {
+  display: flex;
+  height: fit-content;
+  margin-left: auto;
+}
+.navbar-nav {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
 .btnLangUa {
   border: 1px solid gray;
   border-top-left-radius: 5px;
@@ -33,4 +44,44 @@
   background-color: rgb(0, 153, 255);
   color: white;
   border-color: rgb(0, 153, 255);
+}
+
+.btnLogin {
+  color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.btnLogin:hover {
+  color: white;
+  border-color: white;
+}
+
+.btnExit {
+  color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  padding: 4px 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.btnExit:hover {
+  color: white;
+  border-color: white;
+}
+
+.headerNav
+  > .container
+  > .navbar-collapse
+  > .navbar-nav
+  > .langBtnWrapper
+  > .btnLangUa,
+.btnLangEn {
+  font-size: 14px;
 }

@@ -11,27 +11,27 @@ import NavLinks from "../NavigateComponents/NavLinks";
 function HeaderCollapsible() {
   const { t, i18n } = useTranslation("header");
 
-  const selectLang = localStorage.getItem("lang");
+  // const selectLang = localStorage.getItem("lang");
 
-  const handleLanguageChange = (lang) => {
-    i18n.changeLanguage(lang);
-    localStorage.setItem("lang", lang); // ← зберігаємо мову
-  };
+  // const handleLanguageChange = (lang) => {
+  //   i18n.changeLanguage(lang);
+  //   localStorage.setItem("lang", lang); // ← зберігаємо мову
+  // };
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark" className="headerNav">
       <Container>
       <LeftSideMenu />
-        <Navbar.Brand href="/">{t("title")}</Navbar.Brand>
+        <Navbar.Brand>{t("title")}</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav>
           <NavLinks />
           </Nav>
-          <div>
+          {/* <div>
         <span className={`btnLangUa ${selectLang === "ua" ? "btnLangActive" : ""}`} onClick={() => handleLanguageChange("ua")}>UA</span>
         <span className={`btnLangEn ${selectLang === "en" ? "btnLangActive" : ""}`} onClick={() => handleLanguageChange("en")}>EN</span>
-      </div>
+      </div> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

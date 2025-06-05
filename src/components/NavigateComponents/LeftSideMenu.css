@@ -4,6 +4,30 @@
   width: fit-content;
 }
 
+.offcanvas-body > .langBtnWrapper {
+  width: fit-content !important;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+.offcanvas-body > .langBtnWrapper > .btnLangUa {
+  padding-left: 7px;
+  padding-right: 6px;
+}
+.offcanvas-body > .langBtnWrapper > .btnLangEn {
+  padding-left: 6px;
+  padding-right: 7px;
+}
+
+.offcanvas-body > .exitBtnWrapper {
+  width: fit-content !important;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
 .offcanvas.offcanvas-start.custom-width {
   width: 250px !important;
 }
