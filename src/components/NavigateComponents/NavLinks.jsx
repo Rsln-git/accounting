@@ -2,15 +2,20 @@ import { NavLink } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useTranslation } from "react-i18next";
-import { useAuth } from "../../contexts/AuthContext";
+// import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router";
+import { logout } from '../../services/authService';
 // import React, { useEffect, useState } from "react";
 
 function NavigationLinks({ onClick }) {
-  const { user, logout } = useAuth();
+  // const { user, logout } = useAuth();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation("header");
   const selectLang = localStorage.getItem("lang");
+
+  // Отримуємо користувача з localStorage
+  const user = JSON.parse(localStorage.getItem("user"));
+  const isAuthenticated = Boolean(user); // або можна окремо перевірити apiKey якщо треба
 
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
@@ -22,7 +27,10 @@ function NavigationLinks({ onClick }) {
         <Nav.Link as={NavLink} to="/">
             {t("main")}
          </Nav.Link>
-         {!user && (
+         <Nav.Link as={NavLink} to="/administrative-services">
+            {t("administrservice")}
+         </Nav.Link>
+         {!isAuthenticated && (
          <Nav.Link as={NavLink} to="/login">
             {t("login")}
          </Nav.Link>)}
@@ -39,10 +47,13 @@ function NavigationLinks({ onClick }) {
           <span className={`btnLangEn ${selectLang === "en" ? "btnLangActive" : ""}`} onClick={() => handleLanguageChange("en")}>EN</span>
         </div>
         <div className="exitBtnWrapper">
-          {!user && (
+          {!isAuthenticated  && (
             <span className={`btnLogin`} onClick={() => navigate("/login")}>{t("loginbtn")}</span>)}
-            {user && (
-              <span className="btnExit" onClick={logout}>
+            {isAuthenticated  && (
+              <span className="btnExit" onClick={() => {
+                logout();
+                navigate("/login");
+              }}>
                 {t("logoutbtn")}
               </span>
             )}

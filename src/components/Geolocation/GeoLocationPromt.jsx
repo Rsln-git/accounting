@@ -24,8 +24,8 @@ export default function useGeolocationPrompt() {
   }, []);
 
   const requestGeolocation = () => {
-    const token = localStorage.getItem('accessToken');
-    if (!token) {
+    const user = localStorage.getItem('user');
+    if (!user) {
       alert("Спочатку потрібно авторизуватись!");
       setLoading(false);
       return;

@@ -79,7 +79,7 @@ function PaginationSelect({
   
     return (
       <div className="pagination-wrapper">
-        <Pagination>
+        <Pagination className="paginationStyle" size="sm">
           <Pagination.First onClick={() => onPageChange(1)} disabled={currentPage === 1} />
           <Pagination.Prev onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1} />
           {paginationItems}
@@ -88,6 +88,7 @@ function PaginationSelect({
         </Pagination>
   
         <Form.Select
+          size="sm"
           value={itemsPerPage}
           onChange={(e) => onItemsPerPageChange(Number(e.target.value))}
           className="per-page-select"

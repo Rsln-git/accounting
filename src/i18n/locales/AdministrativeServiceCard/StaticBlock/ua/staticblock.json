@@ -1,0 +1,17 @@
+{
+    "labelcode": "Код*",
+    "placeholdercode": "код",
+    "errorcode": "Код обов'язковий!",
+    "labeldiiacode": "Код в Дії*",
+    "placeholderdiiacode": "дія код",
+    "errordiiacode": "Код з Дії обов'язковий",
+    "labeltypeservice": "Тип послуги*",
+    "placeholderselect": "Оберіть тип послуги",
+    "errortypeservice": "Тип послуги обов'язковий",
+    "labelservicetext": "Послуга*",
+    "placeholderservicetext": "послуга",
+    "errorservicetext": "Опис послуги обов'язковий",
+    "labelexecutor": "Виконавець*",
+    "placeholderexecutor": "Оберіть виконавця",
+    "errorexecutor": "Оберіть виконавця"
+  }

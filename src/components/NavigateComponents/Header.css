@@ -1,3 +1,13 @@
+.headerContainer {
+  /* width: fit-content; */
+  display: flex;
+  justify-content: space-between;
+}
+.headerTitle {
+  font-size: 16px;
+  padding: 0;
+}
+
 .langBtnWrapper {
   display: flex;
   height: fit-content;
@@ -14,6 +24,7 @@
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   padding: 2px 5px;
+  font-size: 12px;
   color: white;
   cursor: pointer;
   transition: all ease 0.3s;
@@ -30,6 +41,7 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   padding: 2px 5px;
+  font-size: 12px;
   color: white;
   cursor: pointer;
   transition: all ease 0.3s;
@@ -64,9 +76,10 @@
 .btnExit {
   color: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.55);
-  padding: 4px 10px;
+  padding: 2px 10px;
   border-radius: 5px;
   margin-left: 20px;
+  font-size: 14px;
   cursor: pointer;
   transition: all ease-in-out 0.2s;
 }
@@ -76,7 +89,7 @@
   border-color: white;
 }
 
-.headerNav
+/* .headerNav
   > .container
   > .navbar-collapse
   > .navbar-nav
@@ -84,4 +97,4 @@
   > .btnLangUa,
 .btnLangEn {
   font-size: 14px;
-}
+} */

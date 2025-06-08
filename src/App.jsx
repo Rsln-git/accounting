@@ -13,9 +13,9 @@ function App() {
       <AuthProvider>
         <div className="App">
           <Header />
-          <Breadcrumbs />
+          {/* <Breadcrumbs /> */}
           <AppRouter />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </AuthProvider>
     </BrowserRouter>

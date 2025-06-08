@@ -1,0 +1,13 @@
+.CustomTable thead tr th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.CustomTable thead tr th:first-child {
+  width: 30px;
+  text-align: center;
+}
+
+.CustomTable tbody tr td:first-child {
+  text-align: center;
+}

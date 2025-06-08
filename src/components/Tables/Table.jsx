@@ -3,25 +3,25 @@ import { useTranslation } from "react-i18next";
 import Table from 'react-bootstrap/Table';
 // import { useState } from "react";
 
-function Table({ head, body, onRowClick }) {
+function CustomTable({ head, body, onRowClick }) {
   const { t } = useTranslation("table");
 
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover size="sm" className="CustomTable">
       <thead>
         <tr>
-        <th>#</th>
-          {head.map((col, index) => (
-            <th key={index}>{col}</th>
-          ))}
+        <th>№</th>
+        {head.map(({ label }, index) => (
+          <th key={index}>{label}</th>
+        ))}
         </tr>
       </thead>
       <tbody>
       {body.map((row, rowIndex) => (
           <tr key={rowIndex} onClick={() => onRowClick && onRowClick(row)}>
             <td>{rowIndex + 1}</td>
-            {head.map((col, colIndex) => (
-              <td key={colIndex}>{row[col]}</td>
+            {head.map(({ key }, colIndex) => (
+             <td key={colIndex}>{row[key]}</td>
             ))}
           </tr>
         ))}
@@ -30,7 +30,7 @@ function Table({ head, body, onRowClick }) {
   );
 }
 
-export default Table;
+export default CustomTable;
 
 //EXAMPLE
 

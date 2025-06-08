@@ -1,6 +1,7 @@
 {
     "login": "авторизація",
     "main": "Головна",
-    "btn2": "Button2",
-    "btn3": "Button3"
+    "administrative-services": "адміністративні послуги",
+    "administrative-service-card": "картка адміністративної послуги"
+
   }

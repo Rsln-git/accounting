@@ -1,0 +1,17 @@
+{
+    "labelcode": "Code*",
+    "placeholdercode": "code",
+    "errorcode": "Code is required!",
+    "labeldiiacode": "Diia code*",
+    "placeholderdiiacode": "diia code",
+    "errordiiacode": "Diia code is required",
+    "labeltypeservice": "Type service*",
+    "placeholderselect": "Select type service",
+    "errortypeservice": "Type is required",
+    "labelservicetext": "Service*",
+    "placeholderservicetext": "service",
+    "errorservicetext": "Service is required",
+    "labelexecutor": "Executor*",
+    "placeholderexecutor": "Choose an executor",
+    "errorexecutor": "Executor is required"
+  }

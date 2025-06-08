@@ -27,14 +27,14 @@ function Authorize() {
 
   const onSubmit = async (data) => {
     try {
-      const res = await login(data.useremail, data.password);
-      const decoded = parseJwt(res.accessToken); // декодуємо токен
-      loginContext(decoded); // зберігаємо в контексті
+      const user = await login(data.useremail, data.password);
+      loginContext(user); // ← оновлюємо контекст
       navigate("/");
     } catch (err) {
       console.error("Login error", err);
     }
   };
+  
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)} className='authorizeFormStyle'>
