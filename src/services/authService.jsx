@@ -5,7 +5,7 @@ export const login = async (useremail, password) => {
   const user = response.data.user;
 
   // зберігаємо користувача в localStorage
-  localStorage.setItem("user", JSON.stringify(user));
+  // localStorage.setItem("user", JSON.stringify(user));
 
   return user;
 };

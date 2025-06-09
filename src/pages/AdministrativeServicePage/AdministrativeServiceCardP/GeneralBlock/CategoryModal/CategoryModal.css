@@ -1,0 +1,10 @@
+.modalCategoryStyle .modal-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.modalCategoryStyle .modal-header,
+.modalCategoryStyle .modal-footer {
+  padding: 10px !important;
+}

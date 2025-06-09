@@ -1,0 +1,10 @@
+.modalThematicStyle .modal-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.modalThematicStyle .modal-header,
+.modalThematicStyle .modal-footer {
+  padding: 10px !important;
+}

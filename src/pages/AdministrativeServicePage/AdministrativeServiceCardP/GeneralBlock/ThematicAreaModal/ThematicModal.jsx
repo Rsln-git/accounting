@@ -1,4 +1,4 @@
-import "./ExecutorModal.css";
+import "./ThematicModal.css";
 import { useState, useMemo } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -7,47 +7,47 @@ import Paginator from "../../../../../components/Pagination/PaginationSelect";
 import Search from "../../../../../components/Search/Search";
 import { useTranslation } from "react-i18next";
 
-function ExecutorModal({show, close, onSelect}) {
-  const { t } = useTranslation("executormodal");
+function ThematicModal({show, close, onSelect}) {
+  const { t } = useTranslation("thematicmodal");
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(5);
-    const [executors, setExecutors] = useState([{id: "1", name: "Stepan", code: "12345"}, {id: "2", name: "Andrij", code: "67890"}, {id: "3", name: "Fedor", code: "452367"}]);
+    const [areas, setAreas] = useState([{id: "1", name: "Stepan", code: "12345"}, {id: "2", name: "Andrij", code: "67890"}, {id: "3", name: "Fedor", code: "452367"}]);
     const [searchTerm, setSearchTerm] = useState("");
 
     const head = [
       { key: 'id', label: t("Id") },
-      { key: 'name', label: t('name') },
+      { key: 'name', label: t('area') },
       { key: 'code', label: t('code') },
     ];
 
-    const onRowClick = (executor)=>{
-      onSelect(executor);
+    const onRowClick = (area)=>{
+      onSelect(area);
       close();
     };
 
   // Відфільтровані виконавці
-    const filteredExecutors = useMemo(() => {
-        if (!searchTerm.trim()) return executors;
+    const filteredAreas = useMemo(() => {
+        if (!searchTerm.trim()) return areas;
     
-        return executors.filter((executor) =>
+        return areas.filter((executor) =>
         Object.values(executor).some((value) =>
             value.toLowerCase().includes(searchTerm.toLowerCase())
         )
         );
-    }, [searchTerm, executors]);
+    }, [searchTerm, areas]);
 
 
-  const totalItems = executors.length;
+  const totalItems = areas.length;
 
     const currentRows = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    return filteredExecutors.slice(startIndex, endIndex);
-    }, [filteredExecutors, currentPage, itemsPerPage]);
+    return filteredAreas.slice(startIndex, endIndex);
+    }, [filteredAreas, currentPage, itemsPerPage]);
 
   return (
     <>
-      <Modal show={show} onHide={close} backdrop="static" fullscreen={true} className="modalExecutorStyle">
+      <Modal show={show} onHide={close} backdrop="static" fullscreen={true} className="modalThematicStyle">
         <Modal.Header closeButton>
           <h5>{t("title")}</h5>
         </Modal.Header>
@@ -72,7 +72,7 @@ function ExecutorModal({show, close, onSelect}) {
         </Modal.Body>
         <Modal.Footer>
           <Button size="sm" variant="secondary" onClick={close}>
-            {t("close")}
+            {t("btnclose")}
           </Button>
         </Modal.Footer>
       </Modal>
@@ -80,4 +80,4 @@ function ExecutorModal({show, close, onSelect}) {
   );
 }
 
-export default ExecutorModal;
+export default ThematicModal;

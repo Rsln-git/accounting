@@ -1,0 +1,13 @@
+{
+    "labelcheckbox1": "Платність послуги",
+    "placeholdercheckbox": "Оплачувана",
+    "labelthematicarea": "Тематична область",
+    "placeholderthematicarea": "Оберіть потрібну область",
+    "errorthematicarea": "Вибір обов'язковий",
+    "labelcategory": "Категорія",
+    "placeholdercategory": "Оберіть категорію",
+    "errorcategory": "Оберіть категорію",
+    "labeltab": "Вкладка",
+    "placeholdtab": "Оберіть владення",
+    "errortab": "Виір обов'язковий"
+  }

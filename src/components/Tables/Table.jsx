@@ -1,10 +1,10 @@
 import "./Table.css";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import Table from 'react-bootstrap/Table';
 // import { useState } from "react";
 
 function CustomTable({ head, body, onRowClick }) {
-  const { t } = useTranslation("table");
+  // const { t } = useTranslation("table");
 
   return (
     <Table striped bordered hover size="sm" className="CustomTable">

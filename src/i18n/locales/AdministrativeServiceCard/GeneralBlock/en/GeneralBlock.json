@@ -1,0 +1,13 @@
+{
+    "labelcheckbox1": "Payment",
+    "placeholdercheckbox": "Paid",
+    "labelthematicarea": "Thematic area",
+    "placeholderthematicarea": "Choose an area",
+    "errorthematicarea": "errorthematicarea",
+    "labelcategory": "Category",
+    "placeholdercategory": "Choose an category",
+    "errorcategory": "errorthematicarea",
+    "labeltab": "Tab",
+    "placeholdtab": "Choose an tab",
+    "errortab": "errorthematicarea"
+  }

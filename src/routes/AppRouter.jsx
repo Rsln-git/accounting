@@ -6,7 +6,8 @@ import AdministrativeServiceCardPage from "../pages/AdministrativeServicePage/Ad
 import { useAuth } from "../contexts/AuthContext";
 
 function PrivateRoute({ children }) {
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
+    if (loading) return <div>Loading...</div>;
     return user ? children : <Navigate to="/login" replace />;
 }
 

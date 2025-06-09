@@ -1,0 +1,8 @@
+.tab-error {
+  color: red !important;
+  border-bottom: 2px solid red !important;
+}
+
+.TabsWrapper .nav .nav-item {
+  font-size: 14px;
+}

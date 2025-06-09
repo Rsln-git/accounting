@@ -1,0 +1,48 @@
+.GeneralBlockWrapper {
+  margin-top: 20px;
+}
+.formGroupCheckBox {
+  border: 1px solid lightgray;
+  padding: 15px;
+  position: relative;
+  font-size: 14px;
+}
+
+.checkBoxLabel {
+  position: absolute;
+  top: -17px;
+  background-color: white;
+  padding: 5px;
+}
+
+.formGroupCheckBox .form-check {
+  display: flex;
+  align-items: center;
+}
+#checkbox1 {
+  margin-right: 10px;
+}
+
+/* ThematicArea=================== */
+.formGroupThematicStyle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  color: gray;
+}
+.formGroupThematicStyle .form-label {
+  width: 150px;
+  margin-bottom: 0 !important;
+  margin-right: 10px;
+}
+.inputSelectThematic {
+  display: flex;
+  width: 100%;
+}
+
+/* Category=================== */
+/* Стилі з ThematicArea */
+
+/* Tab=================== */
+/* Стилі з ThematicArea */

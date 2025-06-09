@@ -11,6 +11,8 @@ import enCrumbs from "./locales/en/breadcrumbs.json";
 import uaCrumbs from "./locales/ua/breadcrumbs.json";
 import enSearch from "./locales/en/search.json";
 import uaSearch from "./locales/ua/search.json";
+import enTabs from "./locales/en/tabs.json";
+import uaTabs from "./locales/ua/tabs.json";
 import enMainPage from "./locales/en/mainpage.json";
 import uaMainPage from "./locales/ua/mainpage.json";
 import enLoginPage from "./locales/en/loginpage.json";
@@ -25,7 +27,14 @@ import enStaticBlock from "./locales/AdministrativeServiceCard/StaticBlock/en/st
 import uaStaticBlock from "./locales/AdministrativeServiceCard/StaticBlock/ua/staticblock.json";
 import enExecutorModal from "./locales/AdministrativeServiceCard/StaticBlock/ExecutorModal/en/executormodal.json";
 import uaExecutorModal from "./locales/AdministrativeServiceCard/StaticBlock/ExecutorModal/ua/executormodal.json";
-
+import enGeneralBlock from "./locales/AdministrativeServiceCard/GeneralBlock/en/GeneralBlock.json";
+import uaGeneralBlock from "./locales/AdministrativeServiceCard/GeneralBlock/ua/GeneralBlock.json";
+import enThematicModal from "./locales/AdministrativeServiceCard/GeneralBlock/ThematicModal/en/ThematicModal.json";
+import uaThematicModal from "./locales/AdministrativeServiceCard/GeneralBlock/ThematicModal/ua/ThematicModal.json";
+import enCategoryModal from "./locales/AdministrativeServiceCard/GeneralBlock/CategoryModal/en/CategoryModal.json";
+import uaCategoryModal from "./locales/AdministrativeServiceCard/GeneralBlock/CategoryModal/ua/CategoryModal.json";
+import enTabModal from "./locales/AdministrativeServiceCard/GeneralBlock/TabModal/en/TabModal.json";
+import uaTabModal from "./locales/AdministrativeServiceCard/GeneralBlock/TabModal/ua/TabModal.json";
 
 
 const savedLanguage = localStorage.getItem("lang") || "ua";
@@ -41,6 +50,7 @@ i18n.use(initReactI18next).init({
           leftmenu: enLeftMenu,
           breadcrumbs: enCrumbs,
           search: enSearch,
+          tabs: enTabs,
           mainpage: enMainPage,
           loginpage: enLoginPage,
           authorize: enAuthorizeForm,
@@ -48,6 +58,10 @@ i18n.use(initReactI18next).init({
           administrativeservcard: enAdministrativeServiceCard,
           staticblockcard: enStaticBlock,
           executormodal: enExecutorModal,
+          generalblock: enGeneralBlock,
+          thematicmodal: enThematicModal,
+          categorymodal: enCategoryModal,
+          tabmodal: enTabModal,
         },
         ua: {
           header: uaHeader,
@@ -55,6 +69,7 @@ i18n.use(initReactI18next).init({
           leftmenu: uaLeftMenu,
           breadcrumbs: uaCrumbs,
           search: uaSearch,
+          tabs: uaTabs,
           mainpage: uaMainPage,
           loginpage: uaLoginPage,
           authorize: uaAuthorizeForm,
@@ -62,11 +77,15 @@ i18n.use(initReactI18next).init({
           administrativeservcard: uaAdministrativeServiceCard,
           staticblockcard: uaStaticBlock,
           executormodal: uaExecutorModal,
+          generalblock: uaGeneralBlock,
+          thematicmodal: uaThematicModal,
+          categorymodal: uaCategoryModal,
+          tabmodal: uaTabModal,
         },
       },
   lng: savedLanguage, // мова за замовчуванням
   fallbackLng: "en",
-  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search"],
+  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal"],
   defaultNS: "header",
   interpolation: {
     escapeValue: false,

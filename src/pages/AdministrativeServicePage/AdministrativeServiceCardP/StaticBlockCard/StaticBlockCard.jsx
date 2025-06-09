@@ -4,10 +4,10 @@ import { useTranslation } from "react-i18next";
 import { useForm } from 'react-hook-form';
 import { useState, useEffect, useRef } from 'react';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
+// import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Row from 'react-bootstrap/Row';
+// import InputGroup from 'react-bootstrap/InputGroup';
+// import Row from 'react-bootstrap/Row';
 import { Container } from "react-bootstrap";
 import ExecutorsModal from "./ExecutorModal/ExecutorModal";
 
@@ -41,20 +41,15 @@ function StaticBlockCard({value, send}) {
   } = useForm();
 
   useEffect(() => {
-    // При кожній зміні `info` оновлюємо значення форми
+    // При кожній зміні `value` оновлюємо значення форми
     if (value) {
-      setValue("code", info.active_corre || true);
-      setValue("codediia", info.type || "");
-      setValue("typeservice", info.name_corre || "");
-      setValue('inputNameExecutor', file.name || "");
-
+      setValue("code", value.code || true);
+      setValue("codediia", value.codediia || "");
+      setValue("typeservice", value.typeservice || "");
+      setValue('inputNameExecutor', value.name || "");
+      setValue('executor', value.executor);
     }
   }, [value, setValue]);
-
-  useEffect(() => {
-    // register("executor", { required: t("errorexecutor") });
-  }, [register]);
-
 
   const clearExecutor = () => {
     setValue('inputNameExecutor', '');
@@ -78,7 +73,7 @@ function StaticBlockCard({value, send}) {
   };
 
   return (
-    <Container className="StatickBlockCardWrapper">
+    <Container className="StatickBlockCardWrapper mt-3">
     <Form onSubmit={handleSubmit(onSubmit)} className='staticBlockForm'>
 
         <div className="inputWrapper">
@@ -151,7 +146,7 @@ function StaticBlockCard({value, send}) {
                         placeholder={t("placeholderservicetext")}
                         {...register('servicetext', { required: t("errorservicetext") })}
                         isInvalid={!!errors.servicetext}
-                        style={{ height: '70px' }}
+                        style={{ height: '60px' }}
                         />
                             {errors.servicetext && (
                                 <Form.Text className="text-danger">{errors.servicetext.message}</Form.Text>
@@ -183,7 +178,7 @@ function StaticBlockCard({value, send}) {
                 </Form.Group>
         {/* </div> */}
             
-            <Button type="submit" variant="outline-dark" className="mt-4">{t("btnenter")}</Button>
+            <Button hidden type="submit" variant="outline-dark" className="mt-4">{t("btnenter")}</Button>
     </Form>
     <ExecutorsModal show={showModal} close={handleCloseModal} onSelect={handleExecutorSelect} />
     </Container>

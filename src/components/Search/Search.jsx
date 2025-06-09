@@ -7,7 +7,7 @@ function SearchBlock({ value, onChange, onSearch }) {
   const { t } = useTranslation("search");
 
   return (
-    <div fluid className="SearchWrapper mb-3" onSubmit={(e) => { e.preventDefault(); onSearch(); }}>
+    <div className="SearchWrapper mb-3" onSubmit={(e) => { e.preventDefault(); onSearch(); }}>
       {/* <h5>{t("title")}</h5> */}
       <Form className="d-flex">
             <Form.Control
