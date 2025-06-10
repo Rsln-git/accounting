@@ -29,8 +29,8 @@ function CategoryModal({show, close, onSelect}) {
     const filteredCategories = useMemo(() => {
         if (!searchTerm.trim()) return categories;
     
-        return categories.filter((executor) =>
-        Object.values(executor).some((value) =>
+        return categories.filter((cat) =>
+        Object.values(cat).some((value) =>
             value.toLowerCase().includes(searchTerm.toLowerCase())
         )
         );

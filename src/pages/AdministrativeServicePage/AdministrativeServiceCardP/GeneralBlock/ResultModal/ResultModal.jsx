@@ -1,4 +1,4 @@
-import "./TabModal.css";
+import "./ResultModal.css";
 import { useState, useMemo } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -7,47 +7,47 @@ import Paginator from "../../../../../components/Pagination/PaginationSelect";
 import Search from "../../../../../components/Search/Search";
 import { useTranslation } from "react-i18next";
 
-function TabModal({show, close, onSelect}) {
-  const { t } = useTranslation("tabmodal");
+function ResultModal({show, close, onSelect}) {
+  const { t } = useTranslation("resultmodal");
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(5);
-    const [tabs, setTabs] = useState([{id: "1", name: "Stepan", code: "12345"}, {id: "2", name: "Andrij", code: "67890"}, {id: "3", name: "Fedor", code: "452367"}]);
+    const [results, setResults] = useState([{id: "1", name: "Stepan", code: "12345"}, {id: "2", name: "Andrij", code: "67890"}, {id: "3", name: "Fedor", code: "452367"}]);
     const [searchTerm, setSearchTerm] = useState("");
 
     const head = [
       { key: 'id', label: t("Id") },
-      { key: 'name', label: t('tab') },
+      { key: 'name', label: t('result') },
       { key: 'code', label: t('code') },
     ];
 
-    const onRowClick = (tab)=>{
-      onSelect(tab);
+    const onRowClick = (result)=>{
+      onSelect(result);
       close();
     };
 
   // Відфільтровані виконавці
-    const filteredTabs = useMemo(() => {
-        if (!searchTerm.trim()) return tabs;
+    const filteredResults = useMemo(() => {
+        if (!searchTerm.trim()) return results;
     
-        return tabs.filter((tab) =>
-        Object.values(tab).some((value) =>
+        return results.filter((res) =>
+        Object.values(res).some((value) =>
             value.toLowerCase().includes(searchTerm.toLowerCase())
         )
         );
-    }, [searchTerm, tabs]);
+    }, [searchTerm, results]);
 
 
-  const totalItems = tabs.length;
+  const totalItems = results.length;
 
     const currentRows = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    return filteredTabs.slice(startIndex, endIndex);
-    }, [filteredTabs, currentPage, itemsPerPage]);
+    return filteredResults.slice(startIndex, endIndex);
+    }, [filteredResults, currentPage, itemsPerPage]);
 
   return (
     <>
-      <Modal show={show} onHide={close} backdrop="static" fullscreen={true} className="modalTabStyle">
+      <Modal show={show} onHide={close} backdrop="static" fullscreen={true} className="modalResultStyle">
         <Modal.Header closeButton>
           <h5>{t("title")}</h5>
         </Modal.Header>
@@ -80,4 +80,4 @@ function TabModal({show, close, onSelect}) {
   );
 }
 
-export default TabModal;
+export default ResultModal;

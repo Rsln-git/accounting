@@ -35,6 +35,14 @@ import enCategoryModal from "./locales/AdministrativeServiceCard/GeneralBlock/Ca
 import uaCategoryModal from "./locales/AdministrativeServiceCard/GeneralBlock/CategoryModal/ua/CategoryModal.json";
 import enTabModal from "./locales/AdministrativeServiceCard/GeneralBlock/TabModal/en/TabModal.json";
 import uaTabModal from "./locales/AdministrativeServiceCard/GeneralBlock/TabModal/ua/TabModal.json";
+import enResultModal from "./locales/AdministrativeServiceCard/GeneralBlock/ResultModal/en/ResultModal.json";
+import uaResultModal from "./locales/AdministrativeServiceCard/GeneralBlock/ResultModal/ua/ResultModal.json";
+import enEventModal from "./locales/AdministrativeServiceCard/GeneralBlock/EventModal/en/EventModal.json";
+import uaEventModal from "./locales/AdministrativeServiceCard/GeneralBlock/EventModal/ua/EventModal.json";
+import enTextSmsModal from "./locales/AdministrativeServiceCard/GeneralBlock/TextSmsModal/en/TextSmsModal.json";
+import uaTextSmsModal from "./locales/AdministrativeServiceCard/GeneralBlock/TextSmsModal/ua/TextSmsModal.json";
+import enTextDescriptionModal from "./locales/AdministrativeServiceCard/GeneralBlock/TextDescriptionModal/en/TextDescriptionModal.json";
+import uaTextDescriptionModal from "./locales/AdministrativeServiceCard/GeneralBlock/TextDescriptionModal/ua/TextDescriptionModal.json";
 
 
 const savedLanguage = localStorage.getItem("lang") || "ua";
@@ -62,6 +70,10 @@ i18n.use(initReactI18next).init({
           thematicmodal: enThematicModal,
           categorymodal: enCategoryModal,
           tabmodal: enTabModal,
+          resultmodal: enResultModal,
+          eventmodal: enEventModal,
+          textsmsmodal: enTextSmsModal,
+          textdescriptionmodal: enTextDescriptionModal,
         },
         ua: {
           header: uaHeader,
@@ -81,11 +93,15 @@ i18n.use(initReactI18next).init({
           thematicmodal: uaThematicModal,
           categorymodal: uaCategoryModal,
           tabmodal: uaTabModal,
+          resultmodal: uaResultModal,
+          eventmodal: uaEventModal,
+          textsmsmodal: uaTextSmsModal,
+          textdescriptionmodal: uaTextDescriptionModal,
         },
       },
   lng: savedLanguage, // мова за замовчуванням
   fallbackLng: "en",
-  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal"],
+  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal", "resultmodal", "eventmodal", "textsmsmodal", "textdescriptionmodal"],
   defaultNS: "header",
   interpolation: {
     escapeValue: false,

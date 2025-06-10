@@ -1,4 +1,4 @@
-import "./TabModal.css";
+import "./TextSmsModal.css";
 import { useState, useMemo } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -7,47 +7,47 @@ import Paginator from "../../../../../components/Pagination/PaginationSelect";
 import Search from "../../../../../components/Search/Search";
 import { useTranslation } from "react-i18next";
 
-function TabModal({show, close, onSelect}) {
-  const { t } = useTranslation("tabmodal");
+function TextSmsModal({show, close, onSelect}) {
+  const { t } = useTranslation("textsmsmodal");
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(5);
-    const [tabs, setTabs] = useState([{id: "1", name: "Stepan", code: "12345"}, {id: "2", name: "Andrij", code: "67890"}, {id: "3", name: "Fedor", code: "452367"}]);
+    const [textSms, setTextSms] = useState([{id: "1", name: "Stepan", code: "12345"}, {id: "2", name: "Andrij", code: "67890"}, {id: "3", name: "Fedor", code: "452367"}]);
     const [searchTerm, setSearchTerm] = useState("");
 
     const head = [
       { key: 'id', label: t("Id") },
-      { key: 'name', label: t('tab') },
+      { key: 'name', label: t('text') },
       { key: 'code', label: t('code') },
     ];
 
-    const onRowClick = (tab)=>{
-      onSelect(tab);
+    const onRowClick = (text)=>{
+      onSelect(text);
       close();
     };
 
   // Відфільтровані виконавці
-    const filteredTabs = useMemo(() => {
-        if (!searchTerm.trim()) return tabs;
+    const filteredTexts = useMemo(() => {
+        if (!searchTerm.trim()) return textSms;
     
-        return tabs.filter((tab) =>
-        Object.values(tab).some((value) =>
+        return textSms.filter((text) =>
+        Object.values(text).some((value) =>
             value.toLowerCase().includes(searchTerm.toLowerCase())
         )
         );
-    }, [searchTerm, tabs]);
+    }, [searchTerm, textSms]);
 
 
-  const totalItems = tabs.length;
+  const totalItems = textSms.length;
 
     const currentRows = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    return filteredTabs.slice(startIndex, endIndex);
-    }, [filteredTabs, currentPage, itemsPerPage]);
+    return filteredTexts.slice(startIndex, endIndex);
+    }, [filteredTexts, currentPage, itemsPerPage]);
 
   return (
     <>
-      <Modal show={show} onHide={close} backdrop="static" fullscreen={true} className="modalTabStyle">
+      <Modal show={show} onHide={close} backdrop="static" fullscreen={true} className="modalTextSmsStyle">
         <Modal.Header closeButton>
           <h5>{t("title")}</h5>
         </Modal.Header>
@@ -80,4 +80,4 @@ function TabModal({show, close, onSelect}) {
   );
 }
 
-export default TabModal;
+export default TextSmsModal;

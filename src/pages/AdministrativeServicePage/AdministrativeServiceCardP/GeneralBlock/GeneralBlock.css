@@ -1,25 +1,26 @@
 .GeneralBlockWrapper {
   margin-top: 20px;
 }
-.formGroupCheckBox {
+.formGroupCheckBoxPay {
   border: 1px solid lightgray;
   padding: 15px;
   position: relative;
   font-size: 14px;
 }
 
-.checkBoxLabel {
+.checkBoxPayLabel {
   position: absolute;
   top: -17px;
   background-color: white;
   padding: 5px;
+  margin-bottom: 0;
 }
 
-.formGroupCheckBox .form-check {
+.formGroupCheckBoxPay .form-check {
   display: flex;
   align-items: center;
 }
-#checkbox1 {
+#checkboxpay {
   margin-right: 10px;
 }
 
@@ -46,3 +47,228 @@
 
 /* Tab=================== */
 /* Стилі з ThematicArea */
+
+/* Result=================== */
+/* Стилі з ThematicArea */
+
+/* Event=================== */
+
+.wrapperEventGroups {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  padding: 15px;
+  position: relative;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.formGroupEvent {
+  /* border: 1px solid lightgray;
+  padding: 15px;
+  position: relative; */
+  width: 50%;
+  font-size: 14px;
+}
+
+.eventLabel {
+  position: absolute;
+  top: -17px;
+  background-color: white;
+  padding: 5px;
+  margin-bottom: 0;
+}
+
+.formGroupEvent .form-check {
+  display: flex;
+  align-items: center;
+}
+
+.formGroupDaysEventStyle {
+  display: flex;
+  align-items: center;
+  width: 25%;
+  font-size: 14px;
+  color: gray;
+  margin-left: 30px;
+}
+
+.formGroupDaysEventStyle .form-label {
+  width: 150px;
+  margin-bottom: 0 !important;
+  margin-right: 10px;
+  white-space: nowrap;
+  margin-right: 30px;
+}
+
+.formGroupEventTypeDaysStyle {
+  display: flex;
+  align-items: center;
+  width: 15%;
+  font-size: 14px;
+  color: gray;
+  margin-left: 30px;
+}
+
+.formGroupEventTypeDaysStyle .form-label {
+  width: 150px;
+  margin-bottom: 0 !important;
+  margin-right: 10px;
+}
+
+/* Stopping=================== */
+
+.wrapperStoppingGroups {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid lightgray;
+  padding: 15px;
+  position: relative;
+  font-size: 14px;
+}
+
+.checkBoxStoppingLabel {
+  position: absolute;
+  top: -17px;
+  background-color: white;
+  padding: 5px;
+  margin-bottom: 0;
+}
+
+.formGroupCheckBoxStopping {
+  margin-right: 20px;
+}
+
+.formGroupCheckBoxStopping .form-check {
+  display: flex;
+  align-items: center;
+}
+
+#checkboxstopping {
+  margin-right: 10px;
+}
+/* --------------------------- */
+
+.formGroupDaysStoppingStyle {
+  width: 15%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.formGroupDaysStoppingStyle .form-label {
+  width: 150px;
+  margin-bottom: 0 !important;
+  margin-right: 10px;
+  color: gray;
+}
+/* --------------------------- */
+
+.formGroupStoppingTypeDaysStyle {
+  width: 15%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* --------------------------- */
+
+.formGroupStoppingTypeStyle {
+  width: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  /* margin-right: 20px; */
+}
+
+.formGroupStoppingTypeStyle .form-label {
+  width: 150px;
+  margin-bottom: 0 !important;
+  margin-right: 10px;
+  color: gray;
+}
+
+/* IntermediateAnswer=================== */
+.wrapperIntermediateAnswerGroups {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  padding: 15px;
+  position: relative;
+  font-size: 14px;
+}
+
+.IntermediateAnswerWrapperFirstBlock {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.formGroupCheckIntermediateAnswer {
+  margin-right: 20px;
+}
+
+.checkBoxIntermediateAnswerLabel {
+  position: absolute;
+  top: -17px;
+  background-color: white;
+  padding: 5px;
+  margin-bottom: 0;
+}
+
+.checkBoxIntermediateAnswerLabel .form-check {
+  display: flex;
+  align-items: center;
+}
+
+#checkboxintermediateanswer {
+  margin-right: 10px;
+}
+
+/* --------------------------- */
+
+.formGroupIntermediateAnswerCountStyle {
+  width: 15%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* --------------------------- */
+
+.formGroupIntermediateAnswerTypeDaysStyle {
+  width: 15%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* --------------------------- */
+
+.formGroupTextSmsStyle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  color: gray;
+}
+.formGroupTextSmsStyle .form-label {
+  width: 150px;
+  margin-bottom: 0 !important;
+  margin-right: 10px;
+}
+.inputTextSms {
+  display: flex;
+  width: 100%;
+}
+
+.IntermediateAnswerWrapperSecondBlock {
+  display: flex;
+  flex-direction: column;
+}
