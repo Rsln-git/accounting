@@ -1,16 +1,23 @@
 import "./AdministrativeServiceCardP.css";
 import { useTranslation } from "react-i18next";
 import { Row, Col, Container } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
 import StaticBlock from "./StaticBlockCard/StaticBlockCard";
 import GeneralBlock from "./GeneralBlock/GeneralBlock";
+import TermOfServicesBlock from "./TermOfServicesBlock/TermOfServicesBlock";
 import CustomTabs from "../../../components/Tabs/Tabs";
-import { useState } from "react";
+import { useState, useRef } from "react";
 // import GeoModal  from "../../../components/Modal/GeoModal/GeoModal";
 
 function AdministrativeServiceCardPage() {
   const { t } = useTranslation("tabs");
-  const [errorTab, setErrorTab] = useState(false);
+  const staticRef = useRef();
+  const generalRef = useRef();
+  const termOfServicesRef = useRef();
+
+  const [errorTabs, setErrorTabs] = useState([]);
   const [activeTab, setActiveTab] = useState("general");
+  const [allData, setAllData] = useState([]);
 
   const tabs = [
     { label: t("general"), value: "general" },
@@ -29,19 +36,59 @@ function AdministrativeServiceCardPage() {
     // { label: "Шаблони", value: "templates" },
   ];
 
+  const submitByAll = async () => {
+    const errors = [];
+    const data = [];
 
+    try {
+      const staticData = await staticRef.current?.submitForm();
+      data.push(staticData);
+      console.log("Зібрані всі дані:", staticData);
+    } catch (err) {
+      console.error("Помилка під час збору даних", err);
+    }
+
+    try {
+      const generalData = await generalRef.current?.submitForm();
+      console.log("Зібрані всі дані:", generalData);
+      data.push(generalData);
+    } catch {
+      errors.push("general");
+    }
+
+    try {
+      const termOfServicesData = await termOfServicesRef.current?.submitForm();
+      console.log("Зібрані всі дані:", termOfServicesData);
+      data.push(termOfServicesData);
+    } catch {
+      errors.push("termofservices");
+    }
+
+    setErrorTabs(errors);
+    setAllData(data);
+
+    if (errors.length === 0) {
+      console.log("Усі дані зібрано успішно ", data);
+      await staticRef.current?.resetForm?.();
+      await generalRef.current?.resetForm?.();
+      await termOfServicesRef.current?.resetForm?.();
+    } else {
+      console.error("Є помилки в табах:", errors);
+    }
+  };
 
   return (
     <Container fluid className="AdministrativeServiceCardPageWrapper">
-      {/* <h5>{t("title")}</h5> */}
-      <StaticBlock />
+      <StaticBlock ref={staticRef}/>
       <CustomTabs 
         tabs={tabs}
         activeKey={activeTab}
         onSelect={setActiveTab}
-        error={errorTab}
+        errorTabs={errorTabs}
       />
-      <GeneralBlock style={{ display: activeTab === "general" ? "block" : "none" }} />
+      <GeneralBlock style={{ display: activeTab === "general" ? "block" : "none" }} ref={generalRef} />
+      <TermOfServicesBlock style={{ display: activeTab === "termofservices" ? "flex" : "none" }} ref={termOfServicesRef} />
+      <Button variant="primary" style={{ display: activeTab === "props" ? "block" : "none" }} onClick={submitByAll}>Надіслати всі дані</Button>
    {/* <GeoModal /> */}
     </Container>
   );

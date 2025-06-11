@@ -1,0 +1,23 @@
+{
+    "title": "Set the deadline",
+    "placeholdertimeofcontacting": "At the time of contacting",
+    "placeholdertermofserviceadd": "Deadline",
+    "placeholderdaysadd": "Only digits",
+    "errorrdaysadd": "Required",
+    "maxlengthddigitsbyallerror": "Maximum 4 digits",
+    "errordigitsbyall": "Only digits",
+    "errorstartfromzero": "You can't start from 0",
+    "placeholderworkdays": "Working days",
+    "placeholdercalendarday": "Calendar days",
+    "placeholdertimetocontact": "Use the time of appeal",
+    "labelpaymentamount": "Amount of payment",
+    "placeholdpayment": "UAH",
+    "maxlengthdigitspayerror": "Maximum 10 digits",
+    "errordigitsbypay": "Only digits",
+    "labeldescript": "Description",
+    "placeholddescription": "Description",
+    "maxlengttdescrerror": "Maximum 150 characters",
+    "clear": "Clean",
+    "submit": "Send",
+    "close": "Close"
+  }

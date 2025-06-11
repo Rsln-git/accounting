@@ -10,24 +10,18 @@ import Form from 'react-bootstrap/Form';
 // import Row from 'react-bootstrap/Row';
 import { Container } from "react-bootstrap";
 import ExecutorsModal from "./ExecutorModal/ExecutorModal";
+import { forwardRef, useImperativeHandle } from "react";
 
-function StaticBlockCard({value, send}) {
+const StaticBlockCard = forwardRef(({ value, send }, ref) => {
   const { t } = useTranslation("staticblockcard");
 //   const hiddenInputRef = useRef(null);
-  const [errorFile, setErrorFile] = useState(false);
+//   const [errorFile, setErrorFile] = useState(false);
 //   const [fileInput, setFileInput] = useState();
 
   //Робота за модальним вікном====================
   const [showModal, setShowModal] = useState(false);
     const handleOpenModal = () => setShowModal(true);
     const handleCloseModal = () => setShowModal(false);
-
-    const handleExecutorSelect = (executor) => {
-        setValue('executor', executor); // або файл, або обʼєкт
-        setValue('inputNameExecutor', executor.name); // показати у полі
-        clearErrors(['executor', 'inputNameExecutor']);
-        // setErrorFile(false);
-      };
   
 
   const {
@@ -51,30 +45,40 @@ function StaticBlockCard({value, send}) {
     }
   }, [value, setValue]);
 
+  const handleExecutorSelect = (executor) => {
+    setValue('executor', executor); // або файл, або обʼєкт
+    setValue('inputNameExecutor', executor.name); // показати у полі
+    clearErrors(['executor', 'inputNameExecutor']);
+    // setErrorFile(false);
+  };
+
   const clearExecutor = () => {
     setValue('inputNameExecutor', '');
     setValue('executor', null); // або файл, або обʼєкт
   };
 
 
-  const onSubmit = async (data) => {
-    if (!data.executor) {
-      setError('inputNameExecutor', { type: 'manual', message: t("errorexecutor") });
-      setErrorFile(true);
-      return;
-    }
-  
-    try {
-        console.log("onSubmit ", data);
-    //   send(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+        // Доступ ззовні: submitForm()
+        useImperativeHandle(ref, () => ({
+            submitForm: () =>
+            new Promise((resolve, reject) => {
+                handleSubmit(
+                (data) => {
+                    resolve(data);
+                },
+                (formErrors) => {
+                    reject(formErrors);
+                }
+                )();
+            }),
+                resetForm: () => {
+                    reset();
+                },
+            }));
 
   return (
-    <Container className="StatickBlockCardWrapper mt-3">
-    <Form onSubmit={handleSubmit(onSubmit)} className='staticBlockForm'>
+    <div className="StatickBlockCardWrapper mt-3">
+    <Form onSubmit={handleSubmit(() => {})} className="staticBlockForm">
 
         <div className="inputWrapper">
             <Form.Group className="formGroupStaticStyle">
@@ -84,7 +88,17 @@ function StaticBlockCard({value, send}) {
                             size="sm"
                             type="text"
                             placeholder={t("placeholdercode")}
-                            {...register('code', { required: t("errorcode") })}
+                            {...register('code', { 
+                                required: t("errorcode"),
+                                maxLength: {
+                                    value: 25,
+                                    message: t("maxlengthcodeerror")
+                                }, 
+                                pattern: {
+                                    value: /^[0-9]+$/,
+                                    message: t("errordigitscode")
+                                }
+                            })}
                             isInvalid={!!errors.code}
                             />
                                 {errors.code && (
@@ -100,7 +114,17 @@ function StaticBlockCard({value, send}) {
                             size="sm"
                             type="text"
                             placeholder={t("placeholderdiiacode")}
-                            {...register('diiacode', { required: t("errordiiacode") })}
+                            {...register('diiacode', { 
+                                required: t("errordiiacode"),
+                                maxLength: {
+                                    value: 25,
+                                    message: t("maxlengthcodeerror")
+                                }, 
+                                pattern: {
+                                    value: /^[0-9]+$/,
+                                    message: t("errordigitscode")
+                                } 
+                            })}
                             isInvalid={!!errors.diiacode}
                             />
                                 {errors.diiacode && (
@@ -181,8 +205,8 @@ function StaticBlockCard({value, send}) {
             <Button hidden type="submit" variant="outline-dark" className="mt-4">{t("btnenter")}</Button>
     </Form>
     <ExecutorsModal show={showModal} close={handleCloseModal} onSelect={handleExecutorSelect} />
-    </Container>
+    </div>
   );
-}
+});
 
 export default StaticBlockCard;

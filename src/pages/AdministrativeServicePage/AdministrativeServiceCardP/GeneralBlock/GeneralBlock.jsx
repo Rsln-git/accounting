@@ -11,10 +11,12 @@ import ResultModal from "./ResultModal/ResultModal";
 import EventModal from "./EventModal/EventModal";
 import TextSmsModal from "./TextSmsModal/TextSmsModal";
 import TextDescriptionModal from "./TextDescriptionModal/TextDescriptionModal";
+import { forwardRef, useImperativeHandle } from "react";
 
 // import { useState } from "react";
+const GeneralBlock = forwardRef(({ style, value}, ref) => {
 
-function GeneralBlock({style, value, send}) {
+// function GeneralBlock({style, value, send}) {
   const { t } = useTranslation("generalblock");
 
   const {
@@ -50,6 +52,10 @@ function GeneralBlock({style, value, send}) {
       setValue("textsms", value.textsms || "");
       setValue("textdescriptioninput", value.textdescriptioninput || "");
       setValue("textdescription", value.textdescription || "");
+      setValue("returntocnap", value.returntocnap || "");
+      setValue("checkremaindadd", value.checkremaindadd || "");
+      setValue("checkonestopservice", value.checkonestopservice || "");
+      setValue("checklongterm", value.checklongterm || "");
     }
   }, [value, setValue]);
 
@@ -173,16 +179,26 @@ function GeneralBlock({style, value, send}) {
         };
     
 
-  const onSubmit = async (data) => {
-    try {
-    //   send(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    // Доступ ззовні: submitForm()
+    useImperativeHandle(ref, () => ({
+        submitForm: () =>
+        new Promise((resolve, reject) => {
+            handleSubmit(
+            (data) => {
+                resolve(data);
+            },
+            (formErrors) => {
+                reject(formErrors);
+            }
+            )();
+        }),
+            resetForm: () => {
+                reset();
+            },
+        }));
 
   return <div className="GeneralBlockWrapper" style={style}>
-    <Form onSubmit={handleSubmit(onSubmit)} className='generalBlockForm'>
+    <Form onSubmit={handleSubmit(() => {})} className='generalBlockForm'>
         <Form.Group className="formGroupCheckBoxPay">
             <Form.Label className="checkBoxPayLabel">{t("labelcheckboxpay")}</Form.Label>
                 <Form.Check
@@ -308,7 +324,17 @@ function GeneralBlock({style, value, send}) {
                                 size="sm"
                                 type="text"
                                 placeholder={t("placeholderdaysevent")}
-                                {...register('dayseventinput', { required: t("errorrdaysevent") })}
+                                {...register('dayseventinput', { 
+                                    required: t("errorrdaysevent"),
+                                    maxLength: {
+                                        value: 4,
+                                        message: t("maxlengthddigitsbyallerror")
+                                    }, 
+                                    pattern: {
+                                        value: /^[0-9]+$/,
+                                        message: t("errordigitsbyall")
+                                    }
+                                })}
                                 isInvalid={!!errors.dayseventinput}
                                 />
                                     {errors.dayseventinput && (
@@ -360,7 +386,17 @@ function GeneralBlock({style, value, send}) {
                                 size="sm"
                                 type="text"
                                 placeholder={t("placeholderdaysstopping")}
-                                {...register('daysstoppinginput', { required: t("errorrdaysstopping") })}
+                                {...register('daysstoppinginput', { 
+                                    required: t("errorrdaysstopping"),
+                                    maxLength: {
+                                        value: 4,
+                                        message: t("maxlengthddigitsbyallerror")
+                                    }, 
+                                    pattern: {
+                                        value: /^[0-9]+$/,
+                                        message: t("errordigitsbyall")
+                                    }
+                                })}
                                 isInvalid={!!errors.daysstoppinginput}
                                 />
                                     {errors.daysstoppinginput && (
@@ -432,7 +468,17 @@ function GeneralBlock({style, value, send}) {
                                 size="sm"
                                 type="text"
                                 placeholder={t("placeholderdaysstopping")}
-                                {...register('intermediateanswerinput', { required: t("errorrdaysstopping") })}
+                                {...register('intermediateanswerinput', { 
+                                    required: t("errorrdaysstopping"),
+                                    maxLength: {
+                                        value: 4,
+                                        message: t("maxlengthddigitsbyallerror")
+                                    }, 
+                                    pattern: {
+                                        value: /^[0-9]+$/,
+                                        message: t("errordigitsbyall")
+                                    }
+                                })}
                                 isInvalid={!!errors.intermediateanswerinput}
                             />
                                     {errors.intermediateanswerinput && (
@@ -505,7 +551,67 @@ function GeneralBlock({style, value, send}) {
             </div>
         </div>
 
-        <Button type="submit" variant="outline-dark" className="mt-4">{t("btnenter")}</Button>
+        <Form.Group className="formGroupReturnToCnapStyle mt-3">
+            <Form.Label>{t("labelreturtcnap")}</Form.Label>
+                <div style={{display: "flex", flexDirection: "column"}}>
+                    <Form.Control
+                        size="sm"
+                        type="text"
+                        placeholder={t("placeholderreturncnap")}
+                        {...register('returntocnap', { 
+                            required: t("errorreturncnap"),
+                            maxLength: {
+                                value: 4,
+                                message: t("maxlengthddigitsbyallerror")
+                            }, 
+                            pattern: {
+                                value: /^[0-9]+$/,
+                                message: t("errordigitsbyall")
+                            }
+                        })}
+                        isInvalid={!!errors.returntocnap}
+                        />
+                            {errors.returntocnap && (
+                                <Form.Text className="text-danger">{errors.returntocnap.message}</Form.Text>
+                            )}
+                </div>
+            <Form.Label>{t("labelreturtcnapafter")}</Form.Label>
+        </Form.Group>
+
+        <Form.Group className="formGroupCheckBoxRemaindAdding mt-3">
+            {/* <Form.Label className="checkBoxRemaindAddingLabel">{t("labelcheckboxremaindadd")}</Form.Label> */}
+                <Form.Check
+                    className="mb-0"
+                    type="checkbox"
+                    label={t("placeholdercheckboxremaindadd")}
+                    id={`checkboxremaindadd`}
+                    {...register('checkremaindadd', { required: false})}
+                />
+        </Form.Group>
+
+        <Form.Group className="formGroupCheckBoxOneStopService mt-3">
+            {/* <Form.Label className="checkBoxRemaindAddingLabel">{t("labelcheckboxremaindadd")}</Form.Label> */}
+                <Form.Check
+                    className="mb-0"
+                    type="checkbox"
+                    label={t("placeholdercheckboxonestopservice")}
+                    id={`checkboxonestopservice`}
+                    {...register('checkonestopservice', { required: false})}
+                />
+        </Form.Group>
+
+        <Form.Group className="formGroupCheckBoxLongTerm mt-3 mb-3">
+            {/* <Form.Label className="checkBoxRemaindAddingLabel">{t("labelcheckboxremaindadd")}</Form.Label> */}
+                <Form.Check
+                    className="mb-0"
+                    type="checkbox"
+                    label={t("placeholdercheckboxlongterm")}
+                    id={`checkboxlongterm`}
+                    {...register('checklongterm', { required: false})}
+                />
+        </Form.Group>
+
+        <Button hidden type="submit" variant="outline-dark" className="mt-4">{t("btnenter")}</Button>
     </Form>
         <ThematicModal show={showModalThematicArea} close={handleCloseModalThematic} onSelect={handleThematicAreaSelect}/>
         <CategoryModal show={showModalCategory} close={handleCloseModalCategory} onSelect={handleCategorySelect}/>
@@ -514,7 +620,7 @@ function GeneralBlock({style, value, send}) {
         <EventModal show={showModalEvent} close={handleCloseModalEvent} onSelect={handleEventSelect}/>
         <TextSmsModal show={showModalTextSms} close={handleCloseModalTextSms} onSelect={handleTextSmsSelect}/>
         <TextDescriptionModal show={showModalTextDescription} close={handleCloseModalTextDescription} onSelect={handleTextDescriptionSelect}/>
-  </div>;
-}
+  </div>
+});
 
 export default GeneralBlock;

@@ -43,7 +43,10 @@ import enTextSmsModal from "./locales/AdministrativeServiceCard/GeneralBlock/Tex
 import uaTextSmsModal from "./locales/AdministrativeServiceCard/GeneralBlock/TextSmsModal/ua/TextSmsModal.json";
 import enTextDescriptionModal from "./locales/AdministrativeServiceCard/GeneralBlock/TextDescriptionModal/en/TextDescriptionModal.json";
 import uaTextDescriptionModal from "./locales/AdministrativeServiceCard/GeneralBlock/TextDescriptionModal/ua/TextDescriptionModal.json";
-
+import enTermOfServiceBlock from "./locales/AdministrativeServiceCard/TermOfServiceBlock/en/TermOfServiceBlock.json";
+import uaTermOfServiceBlock from "./locales/AdministrativeServiceCard/TermOfServiceBlock/ua/TermOfServiceBlock.json";
+import enCustomAddModal from "./locales/AdministrativeServiceCard/TermOfServiceBlock/CustomAddModal/en/CustomAddModal.json";
+import uaCustomAddModal from "./locales/AdministrativeServiceCard/TermOfServiceBlock/CustomAddModal/ua/CustomAddModal.json";
 
 const savedLanguage = localStorage.getItem("lang") || "ua";
 if(savedLanguage === "ua"){
@@ -74,6 +77,8 @@ i18n.use(initReactI18next).init({
           eventmodal: enEventModal,
           textsmsmodal: enTextSmsModal,
           textdescriptionmodal: enTextDescriptionModal,
+          termofservicesblock: enTermOfServiceBlock,
+          customaddmodal: enCustomAddModal,
         },
         ua: {
           header: uaHeader,
@@ -97,11 +102,13 @@ i18n.use(initReactI18next).init({
           eventmodal: uaEventModal,
           textsmsmodal: uaTextSmsModal,
           textdescriptionmodal: uaTextDescriptionModal,
+          termofservicesblock: uaTermOfServiceBlock,
+          customaddmodal: uaCustomAddModal,
         },
       },
   lng: savedLanguage, // мова за замовчуванням
   fallbackLng: "en",
-  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal", "resultmodal", "eventmodal", "textsmsmodal", "textdescriptionmodal"],
+  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal", "resultmodal", "eventmodal", "textsmsmodal", "textdescriptionmodal", "termofservicesblock", "customaddmodal"],
   defaultNS: "header",
   interpolation: {
     escapeValue: false,

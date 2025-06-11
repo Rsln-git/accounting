@@ -2,6 +2,8 @@
     "labelcode": "Код*",
     "placeholdercode": "код",
     "errorcode": "Код обов'язковий!",
+    "maxlengthcodeerror": "Максимальна довжина 25 цифр",
+    "errordigitscode": "Лише цифри",
     "labeldiiacode": "Код в Дії*",
     "placeholderdiiacode": "дія код",
     "errordiiacode": "Код з Дії обов'язковий",

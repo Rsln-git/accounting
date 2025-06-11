@@ -39,5 +39,14 @@
     "errortextsms": "Оберіть текст",
     "labeltextdescription": "Текст для опису",
     "placeholdertextdescription": "Оберіть текст для опису",
-    "errortextdescription": "Оберіть текст для опису"
+    "errortextdescription": "Оберіть текст для опису",
+    "labelreturtcnap": "Повертати в СНАП результати виконання через",
+    "placeholderreturncnap": "Кількість днів числом",
+    "errorreturncnap": "Обов'язково числом",
+    "labelreturtcnapafter": "календарних днів",
+    "placeholdercheckboxremaindadd": "Нагадувати про додавання файлів",
+    "placeholdercheckboxonestopservice": "Послуга 'Єдиного вікна'",
+    "placeholdercheckboxlongterm": "Довгострокова",
+    "maxlengthddigitsbyallerror": "Максимальна довжина 4 цифри",
+    "errordigitsbyall": "Лише цифри"
   }

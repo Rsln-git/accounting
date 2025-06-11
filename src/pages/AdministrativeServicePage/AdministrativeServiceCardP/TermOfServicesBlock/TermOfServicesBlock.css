@@ -1,0 +1,34 @@
+.TermOfServicesdWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  border: 1px solid lightgray;
+}
+.TermOfServicesdWrapper table {
+  font-size: 14px;
+}
+
+.btnBlock {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 10px;
+}
+.btnBlock .SearchWrapper {
+  width: 100%;
+  margin-bottom: 0 !important;
+  margin-left: 20px;
+}
+.styleIco {
+  width: 28px;
+  height: 28px;
+  padding: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.styleIco:hover {
+  transform: scale(1.2);
+}

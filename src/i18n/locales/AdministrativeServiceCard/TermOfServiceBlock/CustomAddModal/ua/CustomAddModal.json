@@ -1,0 +1,23 @@
+{
+    "title": "Задати термін виконання",
+    "placeholdertimeofcontacting": "В момент звернення",
+    "placeholdertermofserviceadd": "Термін виконання",
+    "placeholderdaysadd": "Кількість цифрами",
+    "errorrdaysadd": "Обов'язково",
+    "maxlengthddigitsbyallerror": "Максимум 4 цифри",
+    "errordigitsbyall": "Лише цифри",
+    "errorstartfromzero": "Не можна починати з 0",
+    "placeholderworkdays": "Робочих днів",
+    "placeholdercalendarday": "Календарних днів",
+    "placeholdertimetocontact": "Використовувати час звернення",
+    "labelpaymentamount": "Сума оплати",
+    "placeholdpayment": "грн",
+    "maxlengthdigitspayerror": "Максимум 10 цифр",
+    "errordigitsbypay": "Лише цифри",
+    "labeldescript": "Примітки",
+    "placeholddescription": "Примітки",
+    "maxlengttdescrerror": "Максимум 150 символів",
+    "clear": "Очистити",
+    "submit": "Надіслати",
+    "close": "Закрити"
+  }

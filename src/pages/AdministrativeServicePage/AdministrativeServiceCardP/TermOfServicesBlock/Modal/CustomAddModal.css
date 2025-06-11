@@ -1,0 +1,36 @@
+.custoAddModalStyle .modal-header {
+  padding: 10px 20px;
+}
+
+.custoAddModalStyle .modal-footer {
+  padding: 5px 20px;
+}
+
+.generalBlockForm {
+  font-size: 14px;
+}
+.secondLineGroups {
+  display: flex;
+  align-items: center;
+}
+
+.formGroupPaymentAmount {
+  display: flex;
+  align-items: center;
+}
+
+.formGroupPaymentAmount .form-label {
+  width: 100px;
+  margin-bottom: 0;
+  margin-right: 15px;
+}
+
+.formGroupAddDescription {
+  display: flex;
+  align-items: center;
+}
+.formGroupAddDescription .form-label {
+  width: 100px;
+  margin-bottom: 0;
+  margin-right: 15px;
+}

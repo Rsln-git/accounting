@@ -65,9 +65,6 @@
 }
 
 .formGroupEvent {
-  /* border: 1px solid lightgray;
-  padding: 15px;
-  position: relative; */
   width: 50%;
   font-size: 14px;
 }
@@ -271,4 +268,60 @@
 .IntermediateAnswerWrapperSecondBlock {
   display: flex;
   flex-direction: column;
+}
+
+/* ReturnToCnap=================== */
+
+.formGroupReturnToCnapStyle {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.formGroupReturnToCnapStyle .form-label {
+  min-width: 150px;
+  margin-bottom: 0 !important;
+  margin-right: 10px;
+  color: gray;
+}
+
+.formGroupReturnToCnapStyle .form-label:nth-child(3) {
+  margin-left: 10px;
+}
+
+/* CheckBoxGroup=Remaind=Service=Short-term=================== */
+.formGroupCheckBoxRemaindAdding {
+  font-size: 14px;
+}
+.formGroupCheckBoxRemaindAdding .form-check {
+  display: flex;
+  align-items: center;
+}
+
+#checkboxremaindadd {
+  margin-right: 10px;
+}
+
+.formGroupCheckBoxOneStopService {
+  font-size: 14px;
+}
+.formGroupCheckBoxOneStopService .form-check {
+  display: flex;
+  align-items: center;
+}
+
+#checkboxonestopservice {
+  margin-right: 10px;
+}
+
+.formGroupCheckBoxLongTerm {
+  font-size: 14px;
+}
+.formGroupCheckBoxLongTerm .form-check {
+  display: flex;
+  align-items: center;
+}
+
+#checkboxlongterm {
+  margin-right: 10px;
 }

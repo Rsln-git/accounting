@@ -39,5 +39,14 @@
     "errortextsms": "Choose an sms text",
     "labeltextdescription": "Description text",
     "placeholdertextdescription": "Choose an description text",
-    "errortextdescription": "Choose an description text"
+    "errortextdescription": "Choose an description text",
+    "labelreturtcnap": "Return the results of the implementation to SNAP after",
+    "placeholderreturncnap": "Number of days in numbers",
+    "errorreturncnap": "Number of days in numbers",
+    "labelreturtcnapafter": "calendar days",
+    "placeholdercheckboxremaindadd": "Remind me to add files",
+    "placeholdercheckboxonestopservice": "Single Window Service",
+    "placeholdercheckboxlongterm": "Long term",
+    "maxlengthddigitsbyallerror": "Max length is 4 digits",
+    "errordigitsbyall": "Only digits"
   }
