@@ -11,3 +11,12 @@
 .CustomTable tbody tr td:first-child {
   text-align: center;
 }
+
+.CustomTable tbody {
+  font-size: 14px;
+}
+
+tr.selected-row td {
+  background-color: #5bb9bb !important;
+  color: white;
+}

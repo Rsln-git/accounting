@@ -1,5 +1,6 @@
 {
     "title": "Set the deadline",
+    "titleedit": "Edit the deadline",
     "placeholdertimeofcontacting": "At the time of contacting",
     "placeholdertermofserviceadd": "Deadline",
     "placeholderdaysadd": "Only digits",
@@ -10,6 +11,7 @@
     "placeholderworkdays": "Working days",
     "placeholdercalendarday": "Calendar days",
     "placeholdertimetocontact": "Use the time of appeal",
+    "errortypedaysadd": "Required",
     "labelpaymentamount": "Amount of payment",
     "placeholdpayment": "UAH",
     "maxlengthdigitspayerror": "Maximum 10 digits",

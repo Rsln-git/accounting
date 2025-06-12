@@ -47,6 +47,10 @@ import enTermOfServiceBlock from "./locales/AdministrativeServiceCard/TermOfServ
 import uaTermOfServiceBlock from "./locales/AdministrativeServiceCard/TermOfServiceBlock/ua/TermOfServiceBlock.json";
 import enCustomAddModal from "./locales/AdministrativeServiceCard/TermOfServiceBlock/CustomAddModal/en/CustomAddModal.json";
 import uaCustomAddModal from "./locales/AdministrativeServiceCard/TermOfServiceBlock/CustomAddModal/ua/CustomAddModal.json";
+import enSmsBlock from "./locales/AdministrativeServiceCard/SmsBlock/en/SmsBlock.json";
+import uaSmsBlock from "./locales/AdministrativeServiceCard/SmsBlock/ua/SmsBlock.json";
+import enSmsModal from "./locales/AdministrativeServiceCard/SmsBlock/SmsModal/en/SmsBlock.json";
+import uaSmsModal from "./locales/AdministrativeServiceCard/SmsBlock/SmsModal/ua/SmsBlock.json";
 
 const savedLanguage = localStorage.getItem("lang") || "ua";
 if(savedLanguage === "ua"){
@@ -79,6 +83,8 @@ i18n.use(initReactI18next).init({
           textdescriptionmodal: enTextDescriptionModal,
           termofservicesblock: enTermOfServiceBlock,
           customaddmodal: enCustomAddModal,
+          smsblock: enSmsBlock,
+          smsmodal: enSmsModal,
         },
         ua: {
           header: uaHeader,
@@ -104,11 +110,13 @@ i18n.use(initReactI18next).init({
           textdescriptionmodal: uaTextDescriptionModal,
           termofservicesblock: uaTermOfServiceBlock,
           customaddmodal: uaCustomAddModal,
+          smsblock: uaSmsBlock,
+          smsmodal: uaSmsModal,
         },
       },
   lng: savedLanguage, // мова за замовчуванням
   fallbackLng: "en",
-  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal", "resultmodal", "eventmodal", "textsmsmodal", "textdescriptionmodal", "termofservicesblock", "customaddmodal"],
+  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal", "resultmodal", "eventmodal", "textsmsmodal", "textdescriptionmodal", "termofservicesblock", "customaddmodal", "smsblock", "smsmodal"],
   defaultNS: "header",
   interpolation: {
     escapeValue: false,

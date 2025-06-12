@@ -26,7 +26,10 @@ const TermOfServicesBlock = forwardRef(({ style, value }, ref) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(5);
-    const [executors, setExecutors] = useState([{id: "1", deadline: "20.01.2025", cost: "12345", description: "Щось там", other: "Інше"}, {id: "2", deadline: "23.10.2025", cost: "34345", description: "Щось там нове", other: "Інше інше інше"},{id: "3", deadline: "22.12.2025", cost: "123", description: "Щось там ще", other: "Інше інше"}]);
+    const [terms, setTerms] = useState([
+        {id: "2", termOption: "termofserviceadd", daysaddinput: "10", typedaysadd: "2", timetocontact: true,  paymentamount: "10000", description: "Примітка до рядка",  deadline: "23.10.2025", cost: "34345", other: "Інше інше інше"},
+        {id: "3", termOption: "termofserviceadd", daysaddinput: "20", typedaysadd: "1", timetocontact: false,  paymentamount: "15000", description: "Примітка до рядка 2",  deadline: "05.12.2026", cost: "12942", other: "Інше інше "},
+        {id: "4", termOption: "timeofcontacting", daysaddinput: "", typedaysadd: "", timetocontact: false,  paymentamount: "", description: "Примітка до рядка 3",  deadline: "12.09.2024", cost: "79504", other: "Інше"}]);
     const [searchTerm, setSearchTerm] = useState("");
 
     const head = [
@@ -36,60 +39,95 @@ const TermOfServicesBlock = forwardRef(({ style, value }, ref) => {
       { key: 'other', label: t('other') },
     ];
 
-    const onRowClick = (executor)=>{
+    const [infoEdit, setInfoEdit] = useState();
 
+    const onRowClick = (term)=>{
+        setInfoEdit(term);
     };
 
-  // Відфільтровані виконавці
-    const filteredExecutors = useMemo(() => {
-        if (!searchTerm.trim()) return executors;
+  // Відфільтровані Терміни виконання
+    const filteredTerms = useMemo(() => {
+        if (!searchTerm.trim()) return terms;
     
-        return executors.filter((executor) =>
-        Object.values(executor).some((value) =>
-            value.toLowerCase().includes(searchTerm.toLowerCase())
+        return terms.filter((term) =>
+        Object.values(term).some((value) =>
+            String(value).toLowerCase().includes(searchTerm.toLowerCase())
         )
         );
-    }, [searchTerm, executors]);
+    }, [searchTerm, terms]);
 
 
-    const totalItems = executors.length;
+    const totalItems = terms.length;
 
     const currentRows = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    return filteredExecutors.slice(startIndex, endIndex);
-    }, [filteredExecutors, currentPage, itemsPerPage]);
+    return filteredTerms.slice(startIndex, endIndex);
+    }, [filteredTerms, currentPage, itemsPerPage]);
 
-    // AddModal=================================================
+    // Add Edit Modal Delete=================================================
 
     const [showAddModal, setShowAddModal] = useState(false)
     const handleShowAddModal = () => setShowAddModal(true);
     const handleCloseAddModal = () => setShowAddModal(false);
 
+    const [showEditModal, setShowEditModal] = useState(false)
+    const handleShowEditModal = () => setShowEditModal(true);
+    const handleCloseEditModal = () => setShowEditModal(false);
+
+    const deleteRow = async (termToDelete) => {
+        try {
+          // Видалити рядок із масиву
+            setTerms((prevTerms) => prevTerms.filter(term => term.id !== termToDelete.id));
+      
+          // Очистити вибране
+            setInfoEdit(undefined);
+        } catch (error) {
+          console.error("Помилка при видаленні:", error);
+        }
+    };
+
 // Доступ ззовні: submitForm() ====================================
+    // useImperativeHandle(ref, () => ({
+    //     submitForm: () =>
+    //         new Promise((resolve, reject) => {
+    //             handleSubmit(
+    //             (data) => {
+    //                 resolve(data);
+    //             },
+    //             (formErrors) => {
+    //                 reject(formErrors);
+    //             }
+    //             )();
+    //         }),
+    //             resetForm: () => {
+    //                 reset();
+    //             },
+    // }));
+
     useImperativeHandle(ref, () => ({
         submitForm: () =>
-            new Promise((resolve, reject) => {
-                handleSubmit(
-                (data) => {
-                    resolve(data);
-                },
-                (formErrors) => {
-                    reject(formErrors);
-                }
-                )();
-            }),
-                resetForm: () => {
-                    reset();
-                },
-    }));
+          new Promise((resolve) => {
+            resolve({ terms });
+          }),
+        resetForm: () => {
+          setTerms([]);
+          setInfoEdit(undefined);
+        },
+      }));
 
   return (
     <div className="TermOfServicesdWrapper mt-3 mb-3" style={style}>
         <div className="btnBlock">
             <img src={addIco} alt="add" className="styleIco" onClick={handleShowAddModal}/>
-            <img src={editIco} alt="edit" className="styleIco"/>
-            <img src={deleteIco} alt="delete" className="styleIco"/>
+            {infoEdit ? <>
+                <img src={editIco} alt="edit" className="styleIco" onClick={handleShowEditModal}/>
+                <img src={deleteIco} alt="delete" className="styleIco" onClick={()=>deleteRow(infoEdit)}/>
+                </>
+                :
+                null
+                }
+
             <Search
                 value={searchTerm}
                 onChange={setSearchTerm}
@@ -109,6 +147,7 @@ const TermOfServicesBlock = forwardRef(({ style, value }, ref) => {
                         }}
                     />
             <CustomAddModal show={showAddModal} close={handleCloseAddModal}/>
+            <CustomAddModal show={showEditModal} close={handleCloseEditModal} value={infoEdit}/>
     </div>
   );
 });

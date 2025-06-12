@@ -1,0 +1,7 @@
+{
+    "labelcheckboxsuccess": "Сповіщення",
+    "placeholdercheckboxsuccess": "Відправляти смс виконаної послуги",
+    "labelsuccesssms": "Текст повідомлення про виконання",
+    "placeholdersuccesssms": "Текст смс",
+    "errorsmstext": "Обов'язково"
+  }

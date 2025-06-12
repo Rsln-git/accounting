@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import StaticBlock from "./StaticBlockCard/StaticBlockCard";
 import GeneralBlock from "./GeneralBlock/GeneralBlock";
 import TermOfServicesBlock from "./TermOfServicesBlock/TermOfServicesBlock";
+import SmsBlock from "./SmsBlock/SmsBlock";
+import AccessBlock from "./AccessBlock/AccessBlock";
 import CustomTabs from "../../../components/Tabs/Tabs";
 import { useState, useRef } from "react";
 // import GeoModal  from "../../../components/Modal/GeoModal/GeoModal";
@@ -14,6 +16,8 @@ function AdministrativeServiceCardPage() {
   const staticRef = useRef();
   const generalRef = useRef();
   const termOfServicesRef = useRef();
+  const smsRef = useRef();
+  const accessRef = useRef();
 
   const [errorTabs, setErrorTabs] = useState([]);
   const [activeTab, setActiveTab] = useState("general");
@@ -64,6 +68,22 @@ function AdministrativeServiceCardPage() {
       errors.push("termofservices");
     }
 
+    try {
+      const SmsData = await smsRef.current?.submitForm();
+      console.log("Зібрані всі дані:", SmsData);
+      data.push(SmsData);
+    } catch {
+      errors.push("sms");
+    }
+
+    try {
+      const AccessData = await accessRef.current?.submitForm();
+      console.log("Зібрані всі дані:", AccessData);
+      data.push(SmsData);
+    } catch {
+      errors.push("access");
+    }
+
     setErrorTabs(errors);
     setAllData(data);
 
@@ -72,6 +92,7 @@ function AdministrativeServiceCardPage() {
       await staticRef.current?.resetForm?.();
       await generalRef.current?.resetForm?.();
       await termOfServicesRef.current?.resetForm?.();
+      await SmsRef.current?.resetForm?.();
     } else {
       console.error("Є помилки в табах:", errors);
     }
@@ -88,6 +109,8 @@ function AdministrativeServiceCardPage() {
       />
       <GeneralBlock style={{ display: activeTab === "general" ? "block" : "none" }} ref={generalRef} />
       <TermOfServicesBlock style={{ display: activeTab === "termofservices" ? "flex" : "none" }} ref={termOfServicesRef} />
+      <SmsBlock style={{ display: activeTab === "sms" ? "block" : "none" }} ref={smsRef} />
+      <AccessBlock style={{ display: activeTab === "access" ? "block" : "none" }} ref={accessRef} />
       <Button variant="primary" style={{ display: activeTab === "props" ? "block" : "none" }} onClick={submitByAll}>Надіслати всі дані</Button>
    {/* <GeoModal /> */}
     </Container>

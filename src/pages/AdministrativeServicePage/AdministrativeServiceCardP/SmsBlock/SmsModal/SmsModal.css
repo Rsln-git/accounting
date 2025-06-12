@@ -1,0 +1,10 @@
+.modalSmsStyle .modal-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.modalSmsStyle .modal-header,
+.modalSmsStyle .modal-footer {
+  padding: 10px !important;
+}

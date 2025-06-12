@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { Row, Col, Container, Form, Button } from "react-bootstrap";
 import { useForm } from 'react-hook-form';
 import { useTranslation } from "react-i18next";
+import axios from "../../../../../services/axiosInstance";
 
 function CustomAddModal({show, close, value}) {
   const { t } = useTranslation("customaddmodal");
@@ -26,8 +27,12 @@ function CustomAddModal({show, close, value}) {
     useEffect(() => {
       // При кожній зміні `value` оновлюємо значення форми
       if (value) {
-        setValue("checkpay", value.checkpay || false);
-
+        setValue("termOption", value.termOption);
+        setValue("daysaddinput", value.daysaddinput || "");
+        setValue("typedaysadd", value.typedaysadd || "");
+        setValue("timetocontact", value.timetocontact || false);
+        setValue("paymentamount", value.paymentamount || "");
+        setValue("description", value.description || "");
       }
     }, [value, setValue]);
 
@@ -46,10 +51,13 @@ function CustomAddModal({show, close, value}) {
 
     const onSubmit = async (data) => {
         console.log("CustomAddModal ", data);
+        const url = value ? "/editrout" : "/addrout";
+
         try {
-
+            const response = await axios.post(url, data);
+            console.log("Response: ", response);
         } catch (err) {
-
+            console.log("Error: ", err);
         }
       };
 
@@ -57,7 +65,11 @@ function CustomAddModal({show, close, value}) {
     <>
       <Modal show={show} onHide={close} backdrop="static" size="lg" className="custoAddModalStyle">
         <Modal.Header closeButton>
-          <h5 className="mb-0">{t("title")}</h5>
+            {value ? 
+                <h5 className="mb-0">{t("titleedit")}</h5>
+            :
+                <h5 className="mb-0">{t("title")}</h5>
+            }
         </Modal.Header>
         <Modal.Body>
             <Form onSubmit={handleSubmit(onSubmit)} className='generalBlockForm' id="custom-form-1231">
@@ -123,7 +135,7 @@ function CustomAddModal({show, close, value}) {
                             size="sm"
                             {...register('typedaysadd', { required: selectedOption === "termofserviceadd" && t("errortypedaysadd") })}
                             disabled={selectedOption !== "termofserviceadd"}
-                            isInvalid={!!errors.typedaysstopping}
+                            isInvalid={!!errors.typedaysadd}
                             >
                                 <option value={1}>
                                     {t("placeholderworkdays")}
@@ -132,8 +144,8 @@ function CustomAddModal({show, close, value}) {
                                     {t("placeholdercalendarday")}
                                 </option>
                             </Form.Select>
-                                {errors.typedaysstopping && (
-                                    <Form.Text className="text-danger">{errors.typedaysstopping.message}</Form.Text>
+                                {errors.typedaysadd && (
+                                    <Form.Text className="text-danger">{errors.typedaysadd.message}</Form.Text>
                                 )}
                     </Form.Group>
                 </div>

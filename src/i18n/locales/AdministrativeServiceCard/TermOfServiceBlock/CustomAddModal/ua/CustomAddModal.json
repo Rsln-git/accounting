@@ -1,5 +1,6 @@
 {
     "title": "Задати термін виконання",
+    "titleedit": "Редагувати термін виконання",
     "placeholdertimeofcontacting": "В момент звернення",
     "placeholdertermofserviceadd": "Термін виконання",
     "placeholderdaysadd": "Кількість цифрами",
@@ -9,6 +10,7 @@
     "errorstartfromzero": "Не можна починати з 0",
     "placeholderworkdays": "Робочих днів",
     "placeholdercalendarday": "Календарних днів",
+    "errortypedaysadd": "Обов'язково",
     "placeholdertimetocontact": "Використовувати час звернення",
     "labelpaymentamount": "Сума оплати",
     "placeholdpayment": "грн",

@@ -1,0 +1,46 @@
+.AccessBlockWrapper {
+  font-size: 14px;
+}
+
+.wrappCheckSelect {
+  display: flex;
+  border: 1px solid lightgray;
+  padding: 15px;
+  position: relative;
+  font-size: 14px;
+}
+
+.formGroupCheckBoxAccess {
+  display: flex;
+  align-items: center;
+}
+
+.formGroupCheckBoxAccess .form-label {
+  margin-bottom: 0;
+  color: black;
+}
+
+.checkBoxAccessLabel {
+  position: absolute;
+  top: -17px;
+  background-color: white;
+  padding: 5px;
+}
+
+.formGroupSelectAccess {
+  display: flex;
+  width: 100%;
+}
+
+.btnAccessBlock {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-bottom: none;
+}
+
+.btnAccessBlock .SearchWrapper {
+  margin-bottom: 0 !important;
+  width: 100%;
+}

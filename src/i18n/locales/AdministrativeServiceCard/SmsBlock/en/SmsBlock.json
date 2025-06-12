@@ -1,0 +1,7 @@
+{
+    "labelcheckboxsuccess": "Notification",
+    "placeholdercheckboxsuccess": "Send SMS of the completed service",
+    "labelsuccesssms": "The text of the execution message",
+    "placeholdersuccesssms": "SMS text",
+    "errorsmstext": "Required"
+  }
