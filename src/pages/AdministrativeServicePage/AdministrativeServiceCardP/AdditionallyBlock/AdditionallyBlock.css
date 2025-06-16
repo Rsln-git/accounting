@@ -1,0 +1,31 @@
+.AdditionallyBlockWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  border: 1px solid lightgray;
+  padding: 20px 30px;
+  font-size: 14px;
+}
+
+.additionally-row .col {
+  padding: 15px !important;
+}
+.relative-col {
+  position: relative;
+  border: 1px solid lightgray;
+}
+
+.checkBoxdescript {
+  position: absolute;
+  top: -14px;
+  background-color: white;
+  padding: 2px 5px;
+}
+
+.inputSelectAdditionalText {
+  display: flex;
+}
+
+.inputSelectAdditionalResult {
+  display: flex;
+}

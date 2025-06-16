@@ -4,19 +4,29 @@ import addIco from "../../../../assets/add.png";
 import editIco from "../../../../assets/edit.png";
 import deleteIco from "../../../../assets/delete.png";
 import { Row, Col, Container, Form } from "react-bootstrap";
-import { useForm } from 'react-hook-form';
+import Select from 'react-select';
+import { Controller, useForm } from 'react-hook-form';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import CustomTable from "../../../../components/Tables/Table";
 import Paginator from "../../../../components/Pagination/PaginationSelect";
 import Search from "../../../../components/Search/Search";
 import { forwardRef, useImperativeHandle } from "react";
+import AccessAddModal from "./AccessAddModal/AccessAddModal";
 
 const AccessBlock = forwardRef(({ style, value }, ref) => {
   const { t } = useTranslation("accessblock");
 
+  const accessOptions = [
+    { value: 1, label: 'Адміністратор' },
+    { value: 2, label: 'Модератор' },
+    { value: 3, label: 'Користувач' }
+  ];
+  
+
   const {
     register,
     handleSubmit,
+    control,
     setValue,
     setError,
     clearErrors,
@@ -35,9 +45,9 @@ const AccessBlock = forwardRef(({ style, value }, ref) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(5);
     const [performers, setPerformers] = useState([
-        {id: "2", performer: "Виконавець ЕЦП", performerId: 2, user: "Admin", userId: 1},
-        {id: "3", performer: "Виконавець ДКД", performerId: 3, user: "User", userId: 2},
-        {id: "4", performer: "Виконавець ОБЛ", performerId: 4, user: "Admin", userId: 1}]);
+        {id: 2, performer: "Виконавець ЕЦП", performerId: 2, user: "Admin", userId: 1},
+        {id: 3, performer: "Виконавець ДКД", performerId: 3, user: "User", userId: 2},
+        {id: 4, performer: "Виконавець ОБЛ", performerId: 4, user: "Admin", userId: 1}]);
     const [searchTerm, setSearchTerm] = useState("");
 
     const head = [
@@ -53,7 +63,7 @@ const AccessBlock = forwardRef(({ style, value }, ref) => {
     };
 
   // Відфільтровані Терміни виконання
-    const filteredTerms = useMemo(() => {
+    const filteredPerformers = useMemo(() => {
         if (!searchTerm.trim()) return performers;
     
         return performers.filter((performer) =>
@@ -69,8 +79,8 @@ const AccessBlock = forwardRef(({ style, value }, ref) => {
     const currentRows = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    return filteredTerms.slice(startIndex, endIndex);
-    }, [filteredTerms, currentPage, itemsPerPage]);
+    return filteredPerformers.slice(startIndex, endIndex);
+    }, [filteredPerformers, currentPage, itemsPerPage]);
 
     // Add Edit Modal Delete=================================================
 
@@ -115,7 +125,7 @@ const AccessBlock = forwardRef(({ style, value }, ref) => {
     useImperativeHandle(ref, () => ({
         submitForm: () =>
           new Promise((resolve) => {
-            resolve({ terms });
+            resolve({ performers });
           }),
         resetForm: () => {
             setPerformers([]);
@@ -126,11 +136,11 @@ const AccessBlock = forwardRef(({ style, value }, ref) => {
   return (
     <div className="AccessBlockWrapper mt-3 mb-3" style={style}>
         <Form onSubmit={handleSubmit(() => {})} className='AccessBlockForm'>
-            <div className="wrappCheckSelect">
+            <div className="wrappCheckSelect mt-2">
                 <Form.Group className="formGroupCheckBoxAccess">
                     <Form.Label className="checkBoxAccessLabel">{t("labelcheckboxaccess")}</Form.Label>
                         <Form.Check
-                            className="mb-0"
+                            className="mb-0 checkToAll"
                             type="checkbox"
                             label={t("placeholdercheckboxaccess")}
                             id={`checkboxaccess`}
@@ -138,7 +148,29 @@ const AccessBlock = forwardRef(({ style, value }, ref) => {
                         />
                 </Form.Group>
 
-                <Form.Group className="formGroupSelectAccess ms-3">
+                <Controller
+                  name="typeaccess"
+                  control={control}
+                  rules={{ validate: (value) =>
+                    value && value.length > 0 || t("errortypeaccess") }}
+                  render={({ field }) => (
+                    <Select
+                      {...field}
+                      options={accessOptions}
+                      isMulti
+                      className="ControlSelect"
+                      classNamePrefix="react-select"
+                      placeholder={t("placeholdperformers")}
+                    />
+                  )}
+                />
+
+                  {errors.typeaccess && (
+                    <Form.Text className="text-danger">
+                      {errors.typeaccess.message}
+                    </Form.Text>
+                  )}
+                {/* <Form.Group className="formGroupSelectAccess ms-3">
                     <Form.Select
                         size="sm"
                         {...register('typeaccess', { required: t("errortypeaccess") })}
@@ -157,7 +189,7 @@ const AccessBlock = forwardRef(({ style, value }, ref) => {
                         {errors.typeaccess && (
                             <Form.Text className="text-danger">{errors.typeaccess.message}</Form.Text>
                         )}
-                </Form.Group>
+                </Form.Group> */}
             </div>
         </Form>
 
@@ -189,8 +221,8 @@ const AccessBlock = forwardRef(({ style, value }, ref) => {
                             setCurrentPage(1); // Скидаємо сторінку при зміні кількості
                             }}
                         />
-            {/* <CustomAddModal show={showAddModal} close={handleCloseAddModal}/>
-            <CustomAddModal show={showEditModal} close={handleCloseEditModal} value={infoEdit}/> */}
+            <AccessAddModal show={showAddModal} close={handleCloseAddModal}/>
+            <AccessAddModal show={showEditModal} close={handleCloseEditModal} value={infoEdit}/>
     </div>
   );
 });

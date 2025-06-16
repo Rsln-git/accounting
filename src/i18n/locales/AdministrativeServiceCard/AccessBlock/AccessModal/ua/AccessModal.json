@@ -1,0 +1,12 @@
+{
+    "title": "Надати доступ",
+    "titleedit": "Редагувати доступ",
+    "labelperformer": "Виконавець",
+    "placeholderselect": "Зробіть вибір",
+    "errortypepeform": "Оберіть виконавця",
+    "labeluser": "Користувач",
+    "errortypeuser": "Оберіть користувача",
+    "clear": "Очистити",
+    "submit": "Надіслати",
+    "close": "Закрити"
+  }

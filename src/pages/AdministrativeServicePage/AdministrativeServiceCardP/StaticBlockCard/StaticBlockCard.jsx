@@ -133,7 +133,7 @@ const StaticBlockCard = forwardRef(({ value, send }, ref) => {
                     </div>
             </Form.Group>
 
-            <Form.Group className="formGroupStaticStyle">
+            <Form.Group className="selectStyle">
                 <Form.Label className="ms-3">{t("labeltypeservice")}</Form.Label>
                     <div className="styleInputError" style={{display: "flex", flexDirection: "column"}}>
                         <Form.Select

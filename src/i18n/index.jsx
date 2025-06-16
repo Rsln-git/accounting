@@ -51,6 +51,16 @@ import enSmsBlock from "./locales/AdministrativeServiceCard/SmsBlock/en/SmsBlock
 import uaSmsBlock from "./locales/AdministrativeServiceCard/SmsBlock/ua/SmsBlock.json";
 import enSmsModal from "./locales/AdministrativeServiceCard/SmsBlock/SmsModal/en/SmsBlock.json";
 import uaSmsModal from "./locales/AdministrativeServiceCard/SmsBlock/SmsModal/ua/SmsBlock.json";
+import enAccessBlock from "./locales/AdministrativeServiceCard/AccessBlock/en/AccessBlock.json";
+import uaAccessBlock from "./locales/AdministrativeServiceCard/AccessBlock/ua/AccessBlock.json";
+import enAccesModal from "./locales/AdministrativeServiceCard/AccessBlock/AccessModal/en/AccessModal.json";
+import uaAccessModal from "./locales/AdministrativeServiceCard/AccessBlock/AccessModal/ua/AccessModal.json";
+import enAdditionallyBlock from "./locales/AdministrativeServiceCard/AdditionallyBlock/en/AdditionallyBlock.json";
+import uaAdditionallyBlock from "./locales/AdministrativeServiceCard/AdditionallyBlock/ua/AdditionallyBlock.json";
+import enAdditionallyModal from "./locales/AdministrativeServiceCard/AdditionallyBlock/AdditionallyModal/en/AdditionallyModal.json";
+import uaAdditionallyModal from "./locales/AdministrativeServiceCard/AdditionallyBlock/AdditionallyModal/ua/AdditionallyModal.json";
+import enAdditionallyResultModal from "./locales/AdministrativeServiceCard/AdditionallyBlock/AdditionallyResultModal/en/AdditionallyResultModal.json";
+import uaAdditionallyResultModal from "./locales/AdministrativeServiceCard/AdditionallyBlock/AdditionallyResultModal/ua/AdditionallyResultModal.json";
 
 const savedLanguage = localStorage.getItem("lang") || "ua";
 if(savedLanguage === "ua"){
@@ -85,6 +95,11 @@ i18n.use(initReactI18next).init({
           customaddmodal: enCustomAddModal,
           smsblock: enSmsBlock,
           smsmodal: enSmsModal,
+          accessblock: enAccessBlock,
+          accessmodal: enAccesModal,
+          additionallyblock: enAdditionallyBlock,
+          additionallymodal: enAdditionallyModal,
+          additionallyresultmodal: enAdditionallyResultModal,
         },
         ua: {
           header: uaHeader,
@@ -112,11 +127,16 @@ i18n.use(initReactI18next).init({
           customaddmodal: uaCustomAddModal,
           smsblock: uaSmsBlock,
           smsmodal: uaSmsModal,
+          accessblock: uaAccessBlock,
+          accessmodal: uaAccessModal,
+          additionallyblock: uaAdditionallyBlock,
+          additionallymodal: uaAdditionallyModal,
+          additionallyresultmodal: uaAdditionallyResultModal,
         },
       },
   lng: savedLanguage, // мова за замовчуванням
   fallbackLng: "en",
-  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal", "resultmodal", "eventmodal", "textsmsmodal", "textdescriptionmodal", "termofservicesblock", "customaddmodal", "smsblock", "smsmodal"],
+  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal", "resultmodal", "eventmodal", "textsmsmodal", "textdescriptionmodal", "termofservicesblock", "customaddmodal", "smsblock", "smsmodal", "accessblock", "accessmodal", "additionallyblock", "additionallymodal", "additionallyresultmodal"],
   defaultNS: "header",
   interpolation: {
     escapeValue: false,

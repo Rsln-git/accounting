@@ -65,7 +65,7 @@ const SmsBlock = forwardRef(({ style, value }, ref) => {
     <div className="SmsBlockWrapper mt-3 mb-3" style={style}>
     <Form onSubmit={handleSubmit(() => {})} className='SmsBlockForm'>
 
-        <Form.Group className="formGroupCheckBoxSuccess">
+        <Form.Group className="formGroupCheckBoxSuccess mt-2">
             <Form.Label className="checkBoxSuccessLabel">{t("labelcheckboxsuccess")}</Form.Label>
                 <Form.Check
                     className="mb-0"

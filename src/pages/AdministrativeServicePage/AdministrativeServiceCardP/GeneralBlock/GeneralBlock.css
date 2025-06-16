@@ -69,6 +69,10 @@
   font-size: 14px;
 }
 
+.inputSelectEvent {
+  display: flex;
+}
+
 .eventLabel {
   position: absolute;
   top: -17px;
@@ -283,6 +287,61 @@
   margin-bottom: 0 !important;
   margin-right: 10px;
   color: gray;
+}
+
+@media screen and (max-width: 992px) {
+  .wrapperEventGroups {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .formGroupEvent {
+    width: 100%;
+  }
+  .formGroupDaysEventStyle {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 15px;
+  }
+  .formGroupEventTypeDaysStyle {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 15px;
+  }
+
+  .wrapperStoppingGroups {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .formGroupDaysStoppingStyle {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .formGroupStoppingTypeStyle {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .formGroupStoppingTypeDaysStyle {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .IntermediateAnswerWrapperFirstBlock {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .formGroupIntermediateAnswerCountStyle {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .formGroupIntermediateAnswerTypeDaysStyle {
+    width: 100%;
+    margin-top: 15px;
+  }
+  .formGroupReturnToCnapStyle {
+    flex-wrap: wrap;
+  }
+  .formGroupReturnToCnapStyle .form-label:first-child {
+    margin-bottom: 10px !important;
+  }
 }
 
 .formGroupReturnToCnapStyle .form-label:nth-child(3) {

@@ -1,0 +1,12 @@
+{
+    "title": "Grant access",
+    "titleedit": "Edit access",
+    "labelperformer": "Performer",
+    "placeholderselect": "Choose any value",
+    "errortypepeform": "Choose any performer",
+    "labeluser": "User",
+    "errortypeuser": "Choose any user",
+    "clear": "Clear",
+    "submit": "Send",
+    "close": "Close"
+  }

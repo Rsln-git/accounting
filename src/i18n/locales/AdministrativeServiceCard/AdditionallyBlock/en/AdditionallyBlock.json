@@ -1,0 +1,19 @@
+{
+    "labelcheckworkonadescriptionform": "Working with the description form",
+    "placeholderseparatepage": "Print a separate page for the performer",
+    "placeholderanotherregister": "Print number from another register",
+    "placeholderanotheraddition1": "Print appendix 1",
+    "placeholderanotheraddition2": "Print appendix 2",
+    "placeholderanotheraddition3": "Print appendix 3",
+    "labeladditionaltext": "Additional text for description",
+    "placeholderadditionaltext": "Choose any text",
+    "erroradditionaltext": "Choose any text",
+    "placeholderseparateline": "Add a separate line to get the result",
+    "labeladditionalresult": "Execution result - specify another document",
+    "placeholderadditionalresult": "Choose any document",
+    "erroradditionalresult": "Choose any document",
+    "placeholderbycategory": "Do not take into account when generating the `Services by category` report",
+    "placeholdercreatingreport": "Take into account for generating a report when sending for execution",
+    "placeholderexecutiondate": "Setting the execution date by the executor",
+    "placeholdertransfertokai": "Transfer flow to `Kai document` without checking for the presence of a file from the CEP"
+  }

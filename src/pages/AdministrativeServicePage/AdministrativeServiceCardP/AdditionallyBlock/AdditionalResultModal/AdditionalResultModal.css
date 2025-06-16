@@ -1,0 +1,10 @@
+.modalAdditionalResultStyle .modal-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.modalAdditionalResultStyle .modal-header,
+.modalAdditionalResultStyle .modal-footer {
+  padding: 10px !important;
+}

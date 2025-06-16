@@ -20,3 +20,7 @@ tr.selected-row td {
   background-color: #5bb9bb !important;
   color: white;
 }
+
+tr td {
+  cursor: pointer;
+}

@@ -14,11 +14,12 @@
 
 .inputWrapper {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .formGroupStaticStyle {
   display: flex;
   align-items: center;
+  min-width: 25%;
   height: fit-content;
   white-space: nowrap;
 }
@@ -28,8 +29,24 @@
   height: fit-content !important;
 }
 
-.formGroupStaticStyle .form-select {
-  min-width: 400px;
+.selectStyle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  white-space: nowrap;
+  margin-left: auto !important;
+}
+.selectStyle .form-label {
+  margin-bottom: 0;
+  margin-right: 10px;
+  height: fit-content !important;
+}
+.styleInputError {
+  flex: 1;
+}
+.selectStyle .form-select-sm {
+  width: 100% !important;
 }
 
 .inputSelectExecutor {
@@ -69,6 +86,12 @@
     width: 100% !important;
   }
   .formGroupStaticStyle .form-label {
+    margin-left: 0 !important;
+  }
+  .selectStyle .form-select-sm {
+    margin-top: 15px;
+  }
+  .selectStyle .form-label {
     margin-left: 0 !important;
   }
 }

@@ -1,0 +1,19 @@
+{
+    "labelcheckworkonadescriptionform": "Робота з бланком опису",
+    "placeholderseparatepage": "Друкувати окрему сторінку для виконавця",
+    "placeholderanotherregister": "Друкувати номер з іншого реєстру",
+    "placeholderanotheraddition1": "Друкувати Додаток 1",
+    "placeholderanotheraddition2": "Друкувати Додаток 2",
+    "placeholderanotheraddition3": "Друкувати Додаток 3",
+    "labeladditionaltext": "Додатковий текст для опису",
+    "placeholderadditionaltext": "Оберіть текст",
+    "erroradditionaltext": "Оберіть текст",
+    "placeholderseparateline": "Додати окремий рядок для отримання результату",
+    "labeladditionalresult": "Результат виконання - зазначити інший документ",
+    "placeholderadditionalresult": "Оберіть документ",
+    "erroradditionalresult": "Оберіть документ",
+    "placeholderbycategory": "Не враховувати при формуванні звіту 'Послуги за категоріями'",
+    "placeholdercreatingreport": "Враховуватидля формування звіту при відправленні на виконання",
+    "placeholderexecutiondate": "Встановлення дати виконання з боку виконавця",
+    "placeholdertransfertokai": "Передавати в 'Каі документообіг' без перевірки на наявність файла з КЕП"
+  }

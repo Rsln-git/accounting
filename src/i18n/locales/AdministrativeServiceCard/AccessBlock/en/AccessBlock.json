@@ -1,0 +1,8 @@
+{
+    "labelcheckboxaccess": "Access",
+    "placeholdercheckboxaccess": "Available to all",
+    "placeholdperformers": "Choose any access type",
+    "errortypeaccess": "Choose any access type",
+    "performer": "Performer",
+    "user": "User"
+  }

@@ -297,7 +297,7 @@ const GeneralBlock = forwardRef(({ style, value}, ref) => {
         <div className="wrapperEventGroups">
             <Form.Group className="formGroupEvent">
                 <Form.Label className="eventLabel">{t("labelevent")}</Form.Label>
-                <div className="inputSelectThematic">
+                <div className="inputSelectEvent">
                         <div style={{display: "flex", flexDirection: "column", width: "100%"}}>
                             <Form.Control
                                 readOnly

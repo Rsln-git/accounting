@@ -1,0 +1,11 @@
+.WorkingWindowsBlockWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  border: 1px solid lightgray;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.WorkingWindowsBlockForm {
+}
