@@ -4,7 +4,7 @@
     "errorcode": "Code is required!",
     "maxlengthcodeerror": "Max length is 25 digits!",
     "errordigitscode": "Only digits!",
-    "labeldiiacode": "Diia code*",
+    "labeldiiacode": "Diia code",
     "placeholderdiiacode": "diia code",
     "errordiiacode": "Diia code is required",
     "labeltypeservice": "Type service*",

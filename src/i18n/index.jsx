@@ -61,6 +61,10 @@ import enAdditionallyModal from "./locales/AdministrativeServiceCard/Additionall
 import uaAdditionallyModal from "./locales/AdministrativeServiceCard/AdditionallyBlock/AdditionallyModal/ua/AdditionallyModal.json";
 import enAdditionallyResultModal from "./locales/AdministrativeServiceCard/AdditionallyBlock/AdditionallyResultModal/en/AdditionallyResultModal.json";
 import uaAdditionallyResultModal from "./locales/AdministrativeServiceCard/AdditionallyBlock/AdditionallyResultModal/ua/AdditionallyResultModal.json";
+import enPortalBlock from "./locales/AdministrativeServiceCard/PortalBlock/en/PortalBlock.json";
+import uaPortalBlock from "./locales/AdministrativeServiceCard/PortalBlock/ua/PortalBlock.json";
+import enSelectGroupModal from "./locales/AdministrativeServiceCard/PortalBlock/SelectGroupModal/en/SelectGroupModal.json";
+import uaSelectGroupModal from "./locales/AdministrativeServiceCard/PortalBlock/SelectGroupModal/ua/SelectGroupModal.json";
 
 const savedLanguage = localStorage.getItem("lang") || "ua";
 if(savedLanguage === "ua"){
@@ -100,6 +104,8 @@ i18n.use(initReactI18next).init({
           additionallyblock: enAdditionallyBlock,
           additionallymodal: enAdditionallyModal,
           additionallyresultmodal: enAdditionallyResultModal,
+          portalblock: enPortalBlock,
+          selectgroupmodal: enSelectGroupModal,
         },
         ua: {
           header: uaHeader,
@@ -132,11 +138,13 @@ i18n.use(initReactI18next).init({
           additionallyblock: uaAdditionallyBlock,
           additionallymodal: uaAdditionallyModal,
           additionallyresultmodal: uaAdditionallyResultModal,
+          portalblock: uaPortalBlock,
+          selectgroupmodal: uaSelectGroupModal,
         },
       },
   lng: savedLanguage, // мова за замовчуванням
   fallbackLng: "en",
-  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal", "resultmodal", "eventmodal", "textsmsmodal", "textdescriptionmodal", "termofservicesblock", "customaddmodal", "smsblock", "smsmodal", "accessblock", "accessmodal", "additionallyblock", "additionallymodal", "additionallyresultmodal"],
+  ns: ["header", "footer", "leftmenu", "breadcrumbs", "mainpage", "loginpage", "administrativeserv", "staticblockcard", "executormodal", "search", "tabs", "generalblock", "thematicmodal", "categorymodal", "tabmodal", "resultmodal", "eventmodal", "textsmsmodal", "textdescriptionmodal", "termofservicesblock", "customaddmodal", "smsblock", "smsmodal", "accessblock", "accessmodal", "additionallyblock", "additionallymodal", "additionallyresultmodal", "portalblock", "selectgroupmodal"],
   defaultNS: "header",
   interpolation: {
     escapeValue: false,

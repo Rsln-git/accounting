@@ -10,6 +10,7 @@ import AccessBlock from "./AccessBlock/AccessBlock";
 import WorkingWindowsBlock from "./WorkingWindowsBlock/WorkingWindowsBlock";
 import RegulationsBlock from "./RegulationsBlock/RegulationsBlock";
 import AdditionallyBlock from "./AdditionallyBlock/AdditionallyBlock";
+import PortalBlock from "./PortalBlock/PortalBlock";
 import CustomTabs from "../../../components/Tabs/Tabs";
 import { useState, useRef } from "react";
 // import GeoModal  from "../../../components/Modal/GeoModal/GeoModal";
@@ -24,6 +25,7 @@ function AdministrativeServiceCardPage() {
   const workingwindowsRef = useRef();
   const regulationsRef = useRef();
   const additionallyRef = useRef();
+  const portalRef = useRef();
 
   const [errorTabs, setErrorTabs] = useState([]);
   const [activeTab, setActiveTab] = useState("general");
@@ -114,6 +116,14 @@ function AdministrativeServiceCardPage() {
       errors.push("additionally");
     }
 
+    try {
+      const PortalBlockData = await portalRef.current?.submitForm();
+      console.log("Зібрані всі дані PortalBlockData:", PortalBlockData);
+      data.push(PortalBlockData);
+    } catch {
+      errors.push("portal");
+    }
+
     setErrorTabs(errors);
     setAllData(data);
 
@@ -127,6 +137,7 @@ function AdministrativeServiceCardPage() {
       await workingwindowsRef.current?.resetForm?.();
       await regulationsRef.current?.resetForm?.();
       await additionallyRef.current?.resetForm?.();
+      await portalRef.current?.resetForm?.();
     } else {
       console.error("Є помилки в табах:", errors);
     }
@@ -148,6 +159,7 @@ function AdministrativeServiceCardPage() {
       <WorkingWindowsBlock style={{ display: activeTab === "workingwindows" ? "flex" : "none" }} ref={workingwindowsRef} />
       <RegulationsBlock style={{ display: activeTab === "regulations" ? "flex" : "none" }} ref={regulationsRef} />
       <AdditionallyBlock style={{ display: activeTab === "additionally" ? "flex" : "none" }} ref={additionallyRef} />
+      <PortalBlock style={{ display: activeTab === "portal" ? "flex" : "none" }} ref={portalRef} />
       <Button variant="primary" style={{ display: activeTab === "props" ? "block" : "none" }} onClick={submitByAll}>Надіслати всі дані</Button>
    {/* <GeoModal /> */}
     </Container>

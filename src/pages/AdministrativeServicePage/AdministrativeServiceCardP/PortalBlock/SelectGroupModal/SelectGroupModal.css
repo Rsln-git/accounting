@@ -1,0 +1,10 @@
+.modalSelectGroupStyle .modal-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.modalSelectGroupStyle .modal-header,
+.modalSelectGroupStyle .modal-footer {
+  padding: 10px !important;
+}

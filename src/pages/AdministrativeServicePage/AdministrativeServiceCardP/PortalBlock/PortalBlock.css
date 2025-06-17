@@ -1,0 +1,24 @@
+.PortalBlockWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  font-size: 14px;
+}
+
+.EctronicServices {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid lightgray;
+  padding: 15px;
+}
+.labelBlock {
+  position: absolute;
+  top: -15px;
+  background-color: white;
+  padding: 2px 5px;
+}
+
+.inputBtnsPortalService {
+  display: flex;
+}
